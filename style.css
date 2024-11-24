@@ -9,6 +9,7 @@ header{
 }
 .navbar{
     display: flex;
+    align-items: center;
     justify-content: space-between;
     align-items: center;
 }
@@ -39,6 +40,33 @@ header{
     font-weight: bold;
     cursor: pointer;
 }
+.main{
+    background-image: url('./images/img1.jpg');
+    background-position: center;
+    text-align: center;
+    position: relative;
+    padding: 100px 20px;
+    background-size: cover;
+    opacity: 0.8;
+}
+.main-content h1{
+    font-size:48px;
+    color: #191515;
+    margin-bottom: 20px;
+
+}
+.main-content p{
+       font-size: 18px;
+       margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
 .footer{
     position: fixed;
     bottom: 0;
