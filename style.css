@@ -80,6 +80,7 @@ max-width: 45%;
     max-width: 45%;
 }
 
+<<<<<<< HEAD
 .learn-more-btn{
     background-color: #e74c3c;
     color: #fff;
@@ -92,6 +93,14 @@ max-width: 45%;
 .learn-more-btn:hover{
     background-color: #c0392b;
 }
+=======
+
+
+
+
+
+
+>>>>>>> 1dc6f03108b1bc8cc5e5a161894e0e1deca81770
 
 .footer{
     background: black;
