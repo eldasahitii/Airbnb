@@ -74,13 +74,20 @@ max-width: 45%;
 }
 .main-image img{
     border-radius: 10px;
-  
-    max-width: 100%;
+    max-width: 90%;
 }
 .main-image {
-    max-width: 50%;
-   
-    
+    max-width: 45%;
+}
+
+.learn-more-btn{
+    background-color: #e74c3c;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+   border: none;
+   cursor: pointer;
 }
 
 .footer{
