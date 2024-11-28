@@ -143,6 +143,23 @@ flex: 1;
     max-width: 250px;
     width: 100%;
 }
+.about-us-content{
+    background-color: #2e3b4e;
+    text-align: center;
+    padding: 150px;
+}
+.about-us-content h1{
+    color: #c0392b;
+    padding-bottom: 75px;
+    font-size:45px ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+.about-us-content p{
+    color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 17px;
+}
 
 
 
@@ -223,7 +240,7 @@ a:hover{
     color: #f18930;
 }
 .bottom-bar{
-    background: #f18930;
+    background: #e74c3c;
     text-align: center;
     padding: 10px 0;
     margin-top: 50px;
