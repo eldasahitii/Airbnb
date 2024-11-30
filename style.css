@@ -128,7 +128,7 @@ flex: 1;
 }
 .services-card h3{
     margin-bottom: 15px;
-    color:#fff;
+    color:#dd9048;
 
 }
 .services-card p{
@@ -139,12 +139,15 @@ flex: 1;
 .services-card img {
     margin-top: auto;
     border-radius: 8px;
-    height: auto;
+
     max-width: 250px;
     width: 100%;
 }
 .about-us-content{
-    background-color: #2e3b4e;
+    background-image: url("./images/aboutus1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0%;
     text-align: center;
     padding: 150px;
 }
@@ -156,9 +159,58 @@ flex: 1;
     
 }
 .about-us-content p{
-    color: #fff;
+    color: #eee;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 17px;
+    font-weight: bold;
+}
+.results-wrapper{
+    background-color: #34445d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.results-container{
+    background-color:#425168 ;
+    text-align: center;
+    width: 90%;
+    padding: 50px 20px;
+}
+.results-container2 {
+    background-color: #eee;
+}
+.results-container2 h1{
+    color: #2e3b4e ;
+    font-size: 35px;
+    padding: 20px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.results-container2 p{
+    color:#425168;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    padding-bottom: 20px;
+    font-size: 18px;
+    
+}
+.all-statistics{
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
+
+.statistics img{
+    width: 70px;
+    margin-bottom: 15px;
+   
+}
+.statistics .numbers{
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 20px;
+
 }
 
 
