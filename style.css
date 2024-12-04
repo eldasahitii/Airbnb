@@ -303,24 +303,26 @@ a:hover{
     font-size: 16px;
     padding: 7px;
 }
-
-
-body{
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color:#fff;
-    background-color: 1a1a1a;
+.box{
+    
 }
+
+
+
+
+
+
+
+
 .contact-container{
+    color:#fff;
     position: relative;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
-    height: 100vh;
-    background: #222;
-    padding: 20px;
+    height: 720px;
+  
 }
 .contact-left,.contact-right{
     flex: 1;
@@ -329,7 +331,7 @@ body{
     width: 50%;
     padding: 30px;
     position: relative;
-    background: url('./images/contactusbackground1.jpg') no-repeat center center;
+    background: url('./images/contactusbackground1.jpg') no-repeat center;
     background-size: cover;
     flex: 1;
 }
@@ -403,7 +405,7 @@ form button{
     border:none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
+    
 }
 form button:hover{
     background: #0099cc;
