@@ -464,3 +464,34 @@ form button:hover{
     background: #0099cc;
 
 }
+.Signin-form{
+    background: #2e3b4e;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    color:white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.Signin-form input,
+.Signin-form button{
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.Signin-form button{
+    background: #e74c3c;
+    color: #fff;
+    cursor: pointer;
+}
+.signin-page{
+    margin: 0;
+    background-color: #2e3b4e;
+    height: 100vh;
+}
