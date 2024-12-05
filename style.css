@@ -144,9 +144,10 @@ flex: 1;
     width: 100%;
 }
 .about-us-content{
-    background-image: url("./images/aboutus1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #2e3b4e;
+    /* background-image: url("./images/aboutus1.jpg"); */
+    /* background-repeat: no-repeat;
+    background-size: cover; */
     background-position: 0%;
     text-align: center;
     padding: 150px;
@@ -212,11 +213,65 @@ flex: 1;
     font-size: 20px;
 
 }
+.column{
+    width: 50%;
+    padding-top: 20px;
+    padding: 15px 15px;
+    
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.box{
+    background: url("./images/aboutus4.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    padding: 40px 0;
+    text-align: center;
+   
+}
+.box-content{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    height: 500px;
+    position: relative;
+  
+}
+.box-content h1{
+    color: #fff;
+    font-size: 35px;
+    padding-bottom: 15px;
 
-
-
-
-
+}
+.box-content h3{
+    color: #fff;
+    font-weight: bold;
+    
+}
+.box-content ul li{
+    color: #fff;
+}
+.box-content p{
+    color: #fff;
+   line-height: 25px;
+}
+/* .blue-box{
+    background-color: #425168;
+}
+.white-box{
+    background-color: #eee;
+    height: 150px;
+} */
+/* .white-box h3{
+    color: #222;
+}
+.white-box p{
+    color: #222;}
+} */
 
 
 .footer{
@@ -303,9 +358,7 @@ a:hover{
     font-size: 16px;
     padding: 7px;
 }
-.box{
-    
-}
+
 
 
 
