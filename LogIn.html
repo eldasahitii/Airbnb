@@ -34,11 +34,44 @@
         const btnSubmit=document.getElementById('btn-login');
         const validate=(validimi) =>{
           vaidimi.preventDefault();
-          const emailaddress=document.getElementById('email')
-        }
+          const emailaddress=document.getElementById('email');
+          const passwordi=document.getElementById('password');
+          if(emailaddress.value.trim()===""){
+            alert("Please enter your Email.");
+            emailaddress.focus();
+            return false;
+          }
+          const emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,})$/;
+          return emailRegex.test(email.toLowerCase());
+          if(!emailRegex.test(emailaddress.value.trim())){
+        alert("Please enter a valid Email.");
+        emailaddress.focus();
+        return false; 
       }
-    )
+      if(emailaddress.value.trim() !==emailaddress.value.trim().toLowerCase()){
+        alert("Email must be in lowercase!")
+        emailaddress.focus();
+        return false;
+      }
 
+          if(passwordi.value.trim()===""){
+            alert("Please enter your password.");
+            passwordi.focus();
+            return false;
+          }
+          if(passwordi.value.trim().length<8){
+            alert("Your password must be at least 8 characters long.");
+            passwordi.focus();
+            return false;
+          }
+          alert("Log In completed successfully!");
+          document.getElementById('login-form').submit();
+        };
+        btnSubmit.addEventListener("click",validate);
+      });
+      
+      
+      
     </script>
 
 
