@@ -281,25 +281,26 @@ flex: 1;
     background-color: transparent;
     border: 2px solid #2c3e50;
 }
-/* .btn-login{
+.btn-login{
     width: 100%;
    height: 40px;
-   background-color: aquamarine ;
+   background-color:#5eaac4;
    border: none;
    border-radius: 25px;
    cursor: pointer;
    font-size: 16px;
    color: #fff;
 
-} */
+}
 .login-form a{
     text-decoration: none;
-    color: #e05e4f;
+    color: #e74c3c;
     font-weight: bold;
     font-size: 18px;
 }
 .login-btn a{
    color: #fff;
+   border: none;
 }
 
 
