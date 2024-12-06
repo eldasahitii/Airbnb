@@ -142,7 +142,6 @@ flex: 1;
 .services-card img {
     margin-top: auto;
     border-radius: 8px;
-
     max-width: 250px;
     width: 100%;
 }
@@ -303,6 +302,35 @@ flex: 1;
    border: none;
 }
 
+#slide-content{
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background:transparent;
+}
+#slide-content img {
+    max-width: 700px;
+    height: 420px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+#slide-content button{
+    color: #eee;
+    font-weight: bold;
+    width: 50px;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color:#96885c ;
+    border: none;
+    margin-bottom: 15px;
+}
+#slide-content button:hover{
+    background-color: #c2b180;
+}
 
 
 

@@ -10,7 +10,7 @@
    <header>
         <div class="navbar">
             <div class="logo">
-            <img src="./images/image.png" alt="logo">
+                <img src="./images/image.png" alt="logo">
         </div>
             <nav>
                 <a href="#home">Home</a>
@@ -60,25 +60,35 @@
     <script>
         var i=0;
         var imgs=[
-            "images/imgs1.jpg",
             "images/imgs2.jpg",
             "images/imgs3.jpg",
             "images/imgs4.jpg",
             "images/imgs5.jpg",
+            "images/imgs6.jpg"
         ];
+
+        function slideImg(){
+
+            document.getElementById('slideshow').src=imgs[i];
+            if(i<imgs.length - 1){
+                i++;
+            }else{
+                i=0;
+            }
+        }
+       document.body.addEventListener('load',slideImg());
         
     </script>
 
+    <div id="slide-content">
+     
+        <img name="slide" id="slideshow" src="images/imgs1.jpg" />
+        <button onclick="slideImg()">Next</button>
+        
+        </div>
 
 
-
-
-
-
-
-
-    
-
+        
     <footer>
         <div class="container">
             <div class="footer-content">
