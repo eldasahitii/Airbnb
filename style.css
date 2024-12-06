@@ -514,8 +514,7 @@ form button:hover{
     left: 50%;
     transform: translate(-50%,-50%);
 }
-.Signin-form input,
-.Signin-form button{
+.Signin-form input{
     width: 100%;
     margin: 10px 0;
     padding: 10px;
