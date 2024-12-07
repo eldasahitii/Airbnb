@@ -43,23 +43,77 @@
                         <span class="icon"></span>
                         <p><strong>Email:</strong>info-serenity@gmail.com</p>
                     </div>
-                    </div>
+                   
                 </div>
 
                 <div class="contact-right">
                     <form>
                         <h2>Send Message</h2>
-                        <input type="text" placeholder="Full Name" required>
-                        <input type="email" placeholder="Email" required>
-                        <textarea placeholder="Type Your Message..." required></textarea>
-                        <button type="submit">Send</button>
+                        <input type="text"   id="fname" placeholder="Full Name" required>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <textarea id="message" placeholder="Type Your Message..." required></textarea>
+                        <button type="submit" id="send-btn">Send</button>
                         
                     </form>
                 </div>
-                </div>
+               
             </div>
         </div>
     </div>
+
+    <script>
+ document.addEventListener("DOMContentLoaded", function(){
+    const sendBtn=document.getElementById('send-btn');
+    const validate=(event)=>{
+        event.preventDefault();
+        const fullName=document.getElementById('fname');
+        const emailaddress=document.getElementById('email');
+        const messages=document.getElementById('message');
+
+        if(fullName.value.trim()===""){
+            alert("Please enter your full name.");
+            fullName.focus();
+            return false;
+        }
+        const emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,})$/;
+        if(!emailRegex.test(emailaddress.value.trim())){
+            alert("Please enter a valid Email.");
+
+            emailaddress.focus();
+            return false;
+        }
+        if(emailaddress.value.trim()!==emailaddress.value.trim().toLowerCase()){
+        alert("Email must be in lowercase!");
+        emailaddress.focus();
+        return false;
+    } 
+    if(messages.value.trim()===""){
+        alert("Please enter your message.");
+        messages.focus();
+        return false;
+    }
+    if(messages.value.trim().length<10){
+        alert("Your message must be at least 10 characters long.");
+        messages.focus();
+        return false;
+    }
+    alert("Your message has been sent successfully!");
+    document.getElementById('contact-right').submit();
+
+};
+sendBtn.addEventListener("click",validate);
+   
+ });
+    </script>
+
+
+
+
+
+
+
+
+
 
     <script>
         var i=0;
@@ -82,6 +136,10 @@
         }
         document.body.addEventListener('load',slideImg());
     </script>
+
+
+
+
     <div id="slide-content">
         <img name="slide" id="slideshow" src="images/sliderimg1.jpg"/>
         <button onclick="slideImg()">Next</button>
