@@ -38,8 +38,8 @@
     </div> 
     
     <script>
-        document.addEventListener("DOMContentLoaded",function(event) { 
-            const submit = document.getElementById('submit-btn');
+        document.addEventListener("DOMContentLoaded",function() { 
+            const submit = document.getElementById('submit');
             const validate=(event) => {
                 event.preventDefault();
 
@@ -50,7 +50,7 @@
                 const passwordInput = document.getElementById('pass1');
                 const confirmPasswordInput = document.getElementById("pass2");
 
-                if(emriInput.value === "") {
+                if(emriInput.value.trim() === "") {
                     alert("Please enter your name.");
                     emriInput.focus();
                     return false;
