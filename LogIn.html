@@ -18,7 +18,7 @@
               <label for="password">Password:</label><br>
               <input type="password" id="password" name="pass" required>
              
-                <button type="button" id="btn-login"><a href="Home.html">Log In</a></button>
+                <button type="submit" id="btn-login"><a href="Home.html">Log In</a></button>
                
                   <p>First time here?<a href="Sign-in.html"> Sign In</a></p>
 
@@ -32,8 +32,8 @@
     document.addEventListener("DOMContentLoaded",
       function (validimi){
         const btnSubmit=document.getElementById('btn-login');
-        const validate=(validimi) =>{
-          vaidimi.preventDefault();
+        const validate=(event) =>{
+          event.preventDefault();
           const emailaddress=document.getElementById('email');
           const passwordi=document.getElementById('password');
           if(emailaddress.value.trim()===""){
@@ -42,7 +42,6 @@
             return false;
           }
           const emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,})$/;
-          return emailRegex.test(email.toLowerCase());
           if(!emailRegex.test(emailaddress.value.trim())){
         alert("Please enter a valid Email.");
         emailaddress.focus();
