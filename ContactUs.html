@@ -61,6 +61,32 @@
         </div>
     </div>
 
+    <script>
+        var i=0;
+        var imgs=[
+            "images/sliderimg1.jpg",
+            "images/sliderimg2.jpg",
+            "images/sliderimg3.jpg",
+            "images/sliderimg4.jpg",
+            "images/sliderimg5.jpg",
+            "images/sliderimg6.jpg",
+            "images/sliderimg7.jpg"
+        ];
+        function slideImg(){
+            document.getElementById('slideshow').src=imgs[i];
+            if(i<imgs.length - 1){
+                i++;
+            }else{
+                i=0;
+            }
+        }
+        document.body.addEventListener('load',slideImg());
+    </script>
+    <div id="slide-content">
+        <img name="slide" id="slideshow" src="images/sliderimg1.jpg"/>
+        <button onclick="slideImg()">Next</button>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-content">
