@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card{
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .card:hover{
+            transform: scale(1.03);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content{
+            padding: 15px;
+        }
+        .card-content h3 {
+            font-size: 16px;
+            margin: 0 0 10px; 
+        }
+        .card-content p {
+            font-size: 14px;
+            margin: 5px 0;
+            color:#666;
+        }
+        .card-content .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+            <img src="./images/image.png" alt="logo">
+        </div>
+            <nav>
+                <a href="Home.html">Home</a>
+                <a href="AboutUs.html">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#booking">Booking</a>
+            </nav>
+            <button class="login-btn"><a href="LogIn.html">Log In</a></button>
+        </div>
+    </header>
+
+
+
+
+    <div class="cards">
+        <div class="card">
+            <img src="images/washington1.jpeg" alt="Washington, United States">
+            <div class="card-content">
+                <h3>Washington, United States</h3>
+                <p>Salish Lodge and Spa</p>
+                <p class="price"> $400 / night</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/southcarolina1.jpeg" alt="South Carolina, United States">
+            <div class="card-content">
+                <h3>South Carolina, United States</h3>
+                <p>The Dewberry Charliston</p>
+                <p class="price"> $360 / night</p>
+
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/oregon1.avif" alt="Oregon, United States">
+            <div class="card-content">
+                <h3>Oregon, United States</h3>
+                <p>The Alison Inn and Spa</p>
+                <p class="price"> $330 / night</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/newyork1.avif" alt="New York, United States">
+            <div class="card-content">
+                <h3>New York, United States</h3>
+                <p>The standard high line</p>
+                <p class="price"> $439 / night</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/laconner1.jpg" alt="La conner, United States">
+            <div class="card-content">
+                <h3>La conner, Washington, United States</h3>
+                <p>The wild Iris Inn</p>
+                <p class="price"> $270 / night</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/gualala1.avif" alt="Gualala, United States">
+            <div class="card-content">
+                <h3>Gualala, California, United States</h3>
+                <p>Home in Gualala,California</p>
+                <p class="price"> $780 / night</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/cancun1.avif" alt="Cancun, United States">
+            <div class="card-content">
+                <h3>Cancun, United States</h3>
+                <p>Dream sounds Cancun resort and Spa</p>
+                <p class="price"> $240 / night</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="images/california1.avif" alt="California, United States">
+            <div class="card-content">
+                <h3>California, United States</h3>
+                <p>The Saguro palm springs</p>
+                <p class="price"> $220 / night</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Contact Us</h3>
+                
+                <p>Email: info-serenity@gmail.com</p>
+                <p>Phone: +383 45 621 166</p>
+            </div>
+            <div class="footer-content">
+                <h3>Quick Links</h3>
+                <ul class="list">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="AboutUs.html">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="ContactUs.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-content">
+                <h3>Follow Us</h3>
+                <ul class="social-icons">
+                <li><a href="https://www.facebook.com/"></a><img src="/images/facebook.png" alt="Facebook Icon" width="60" height="60"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://x.com/"></a><img src="/images/twitter.png" alt="Twitter Icon" width="60" height="60"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/"></a><img src="/images/instagram.png" alt="Instagram Icon" width="60" height="60"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://www.linkedin.com/"></a><img src="/images/linkedin.png" alt="LinkedIn Icon" width="60" height="60"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <p>&copy;2024 Serenity . All rights reserved</p>
+        </div>
+            
+    </footer> 
+</body>
+</html>
