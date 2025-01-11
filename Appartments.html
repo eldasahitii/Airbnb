@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>title</title>
+
+
     <style>
         .cards {
             display: grid;
@@ -42,6 +44,23 @@
             font-weight: bold;
             color: #333;
         }
+        .gallery{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -65,7 +84,7 @@
 
 
     <div class="cards">
-        <div class="card">
+        <div class="card" onclick="showGallery('washington')">
             <img src="images/washington1.jpeg" alt="Washington, United States">
             <div class="card-content">
                 <h3>Washington, United States</h3>
@@ -73,7 +92,7 @@
                 <p class="price"> $400 / night</p>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showGallery('southcarolina')">
             <img src="images/southcarolina1.jpeg" alt="South Carolina, United States">
             <div class="card-content">
                 <h3>South Carolina, United States</h3>
@@ -82,7 +101,7 @@
 
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showGallery('oregon')">
             <img src="images/oregon1.avif" alt="Oregon, United States">
             <div class="card-content">
                 <h3>Oregon, United States</h3>
@@ -90,7 +109,7 @@
                 <p class="price"> $330 / night</p>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showGallery('newyork')">
             <img src="images/newyork1.avif" alt="New York, United States">
             <div class="card-content">
                 <h3>New York, United States</h3>
@@ -98,7 +117,7 @@
                 <p class="price"> $439 / night</p>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showGallery('laconner')">
             <img src="images/laconner1.jpg" alt="La conner, United States">
             <div class="card-content">
                 <h3>La conner, Washington, United States</h3>
@@ -106,7 +125,7 @@
                 <p class="price"> $270 / night</p>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showGallery('gualala')">
             <img src="images/gualala1.avif" alt="Gualala, United States">
             <div class="card-content">
                 <h3>Gualala, California, United States</h3>
@@ -114,7 +133,7 @@
                 <p class="price"> $780 / night</p>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showGallery('cancun')">
             <img src="images/cancun1.avif" alt="Cancun, United States">
             <div class="card-content">
                 <h3>Cancun, United States</h3>
@@ -122,7 +141,7 @@
                 <p class="price"> $240 / night</p>
             </div>
         </div>
-        <div class="card">
+        <div class="card" onclick="showGallery('california')">
             <img src="images/california1.avif" alt="California, United States">
             <div class="card-content">
                 <h3>California, United States</h3>
@@ -131,6 +150,7 @@
             </div>
         </div>
     </div>
+
     
 
     <footer>
@@ -165,5 +185,117 @@
         </div>
             
     </footer> 
+   
+    <script>
+        const galleries = {
+            washington: [
+                'images/washington2.avif',
+                'images/washington3.avif',
+                'images/washington4.avif',
+                'images/washington5.avif',
+                'images/washington6.avif',
+                'images/washington7.avif',
+                'images/washington8.avif',
+                'images/washington9.avif',
+                'images/washington10.avif',
+                'images/washington11.avif',
+                'images/washington12.avif',
+            ],
+            southcarolina: [
+                'images/southcarolina2.jpeg',
+                'images/southcarolina3.jpeg',
+                'images/southcarolina4.jpeg',
+                'images/southcarolina5.jpeg',
+                'images/southcarolina6.jpeg',
+                'images/southcarolina7.jpeg',
+                'images/southcarolina8.jpeg',
+                'images/southcarolina9.jpeg',
+                'images/southcarolina10.jpeg',
+            ],
+            oregon: [
+                'images/oregon2.avif',
+                'images/oregon3.avif',
+                'images/oregon4.avif',
+                'images/oregon5.avif',
+                'images/oregon6.avif',
+                'images/oregon7.avif',
+                'images/oregon8.avif',
+                'images/oregon9.avif',
+                'images/oregon10.avif',
+                'images/oregon11.avif',
+                'images/oregon12.avif',
+            ],
+            newyork: [
+                'images/newyork2.avif',
+                'images/newyork3.avif',
+                'images/newyork4.avif',
+                'images/newyork5.avif',
+                'images/newyork6.avif',
+                'images/newyork7.avif',
+                'images/newyork8.avif',
+                
+            ],
+            laconner: [
+                'images/laconner2.jpg',
+                'images/laconner3.jpg',
+                'images/laconner4.jpg',
+                'images/laconner5.jpg',
+                'images/laconner6.jpg',
+                'images/laconner7.jpg',
+                'images/laconner8.jpg',
+                'images/laconner9.jpg',
+                'images/laconner10.jpg',
+            ],
+            gualala: [
+                'images/gualala2.avif',
+                'images/gualala3.avif',
+                'images/gualala4.avif',
+                'images/gualala5.avif',
+                'images/gualala6.avif',
+                'images/gualala7.avif',
+                'images/gualala8.avif',
+                'images/gualala9.avif',
+                'images/gualala10.avif',
+                'images/gualala11.avif',
+            ],
+            cancun: [
+                'images/cancun2.avif',
+                'images/cancun3.avif',
+                'images/cancun4.avif',
+                'images/cancun5.avif',
+                'images/cancun6.avif',
+                'images/cancun7.avif',
+                'images/cancun8.avif',
+                'images/cancun9.avif',
+                'images/cancun10.avif',
+            ],
+            california: [
+                'images/california2.avif',
+                'images/california3.avif',
+                'images/california4.avif',
+                'images/california5.avif',
+                'images/california6.avif',
+                'images/california7.avif',
+            ]
+        };
+        function showGallery(hotelId){
+            const galleryDiv = document.getElementById('dynamicGallery');
+            galleryDiv.innerHTML = '';
+            const images = galleries[hotelId];
+            if(images){
+                images.forEach(imageUrl => {
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    galleryDiv.appendChild(img);
+
+                });
+
+            }else {
+                galleryDiv.innerHTML = '<p>No images avaiblr for this selection.</p>';
+                
+            }
+          }
+
+    </script> 
 </body>
 </html>
