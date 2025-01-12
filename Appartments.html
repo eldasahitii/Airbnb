@@ -257,7 +257,7 @@
         </div>
     </div>
     <div id="dynamicGallery" class="gallery"></div>
-    <!-- Image Slider Modal -->
+    
 <div id="imageModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -417,7 +417,7 @@
 let currentImages = [];
 
 function showGallery(hotelId) {
-    // Get images for the selected hotel
+    
     currentImages = galleries[hotelId];
     if (currentImages && currentImages.length > 0) {
         currentSlideIndex = 0;
@@ -455,7 +455,6 @@ function prevSlide() {
     }
 }
 
-// Close modal when clicking outside
 window.onclick = function (event) {
     const modal = document.getElementById('imageModal');
     if (event.target === modal) {
