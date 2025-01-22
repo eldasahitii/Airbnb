@@ -6,6 +6,7 @@
     <title>Booking</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="navbar">
@@ -24,6 +25,155 @@
     </header>
 
 
+    <h1 id="h1-b">Apartment Booking</h1>
+    
+    <div class="booking-container">
+ <form id="book">
+    <select id="apartment" required>
+        <option value="" disabled selected>Choose your Apartment  </option>
+        <option value="1">Salish Lodge and Spa - Washington, United States</option>
+        <option value="2">The Dewberry Charliston - South Carolina, United States</option>
+        <option value="3">The Alison Inn and Spa - Oregon, United States</option>
+        <option value="4">The Standard High Line - New York, United States</option>
+        <option value="5">The Wild Iris Inn - La conner, Washington, United States</option>
+        <option value="5">Home in Gualala,California - Gualala, California, United States</option>
+        <option value="5">Dream Sounds Cancun Resort and Spa - Cancun, United States</option>
+        <option value="5">The Saguro Palm Springs - California, United States</option>
+    </select>
+
+
+
+    <input type="text" id="fname" placeholder="First Name" required>
+
+    <input type="text" id="lname" placeholder="Last Name" required>
+
+    <input type="tel" id="phone" placeholder="Phone Number">
+
+    <input type="email" id="email" placeholder="Email">
+
+    <input type="date" id="checkin" placeholder="Check In" >
+
+    <input type="date" id="checkout" placeholder="Check Out" >
+
+
+    <select id="adults" required>
+        <option value="" disabled selected>Adults</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <select id="kids" required>
+        <option value="" disabled selected>Kids</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4+">4+</option>
+       
+    </select>
+<div class="request">
+    <input type="text" placeholder="Special Request (Optional)">
+</div>
+   <button type="submit" id="btn-book">Book Now</button>
+ </form>
+</div>
+<script>
+ document.addEventListener("DOMContentLoaded",
+      function (){
+        const btnSubmit=document.getElementById('btn-book');
+        const validate=(event) =>{
+          event.preventDefault();
+          const emailaddress=document.getElementById('email');
+          const apartment=document.getElementById('apartment');
+          const firstName=document.getElementById('fname');
+          const lastName=document.getElementById('lname');
+          const phone=document.getElementById('phone');
+          const checkIn=document.getElementById('checkin');
+          const checkOut=document.getElementById('checkout');
+          const adults=document.getElementById('adults');
+          const kids=document.getElementById('kids');
+
+
+      if (apartment.value === "") {
+      alert("Please choose your apartment.");
+      apartment.focus();
+      return false;
+    }
+    if (firstName.value.trim() === "") {
+      alert("Please enter your first name.");
+      firstName.focus();
+      return false;
+    }
+    if (lastName.value.trim() === "") {
+      alert("Please enter your last name.");
+      lastName.focus();
+      return false;
+    }
+
+    const phoneRegex = /^\+?[0-9]{10,15}$/; 
+    if (phone.value.trim() === "") {
+      alert("Please enter your phone number.");
+      phone.focus();
+      return false;
+    } else if (!phoneRegex.test(phone.value.trim())) {
+      alert("Please enter a valid phone number.");
+      phone.focus();
+      return false;
+    }
+    if(emailaddress.value.trim()===""){
+            alert("Please enter your Email.");
+            emailaddress.focus();
+            return false;
+          }
+          const emailRegex = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,})$/;
+          if(!emailRegex.test(emailaddress.value.trim())){
+        alert("Please enter a valid Email.");
+        emailaddress.focus();
+        return false; 
+      }
+      if(emailaddress.value.trim() !==emailaddress.value.trim().toLowerCase()){
+        alert("Email must be in lowercase!")
+        emailaddress.focus();
+        return false;
+      }
+
+    if (checkIn.value === "") {
+      alert("Please select a check-in date.");
+      checkIn.focus();
+      return false;
+    }
+    if (checkOut.value === "") {
+      alert("Please select a check-out date.");
+      checkOut.focus();
+      return false;
+    }
+    if (new Date(checkOut.value) <= new Date(checkIn.value)) {
+      alert("Check-out date must be after the check-in date.");
+      checkOut.focus();
+      return false;
+    }
+    if (adults.value === "") {
+      alert("Please select the number of adults.");
+      adults.focus();
+      return false;
+    }
+    if (kids.value === "") {
+      alert("Please select the number of kids.");
+      kids.focus();
+      return false;
+    }
+
+      alert("Booking completed successfully!");
+          window.location.href = "home.html"; 
+          document.getElementById('login-form').submit();
+        };
+        btnSubmit.addEventListener("click",validate);
+      });
+
+</script>
 
 
 

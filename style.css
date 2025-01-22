@@ -259,7 +259,6 @@ flex: 1;
    line-height: 25px;
 }
 .login-page{
-    background-color: #34445d;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -267,7 +266,7 @@ flex: 1;
 }
 .login-form{
     width:420px;
-    background-color: #415970;
+    background-color: #54718d;
     color: #fff;
     border: 2px solid;
    
@@ -293,7 +292,7 @@ flex: 1;
 }
 .login-form a{
     text-decoration: none;
-    color: #e74c3c;
+    color: #333;
     font-weight: bold;
     font-size: 18px;
 }
@@ -332,7 +331,31 @@ flex: 1;
     background-color: #c2b180;
 }
 
-
+.booking-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+#h1-b{
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 15px 15px;
+    color: #333;
+}
+#book{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color:#54718d ;
+}
+#book input,select {
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #ccc ;
+color: #333;
+}
 
 
 
@@ -414,7 +437,7 @@ a:hover{
 .bottom-bar{
     background: #e74c3c;
     text-align: center;
-    padding: 10px 0;
+    padding: 8px 0;
     margin-top: 50px;
 }
 .bottom-bar p{
