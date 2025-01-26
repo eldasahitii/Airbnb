@@ -255,6 +255,24 @@
                 <a href="#booking" class="book-btn">Book Here</a>
             </div>
         </div>
+        <div class="card" onclick="showGallery('palmbeach')">
+            <img src="images/palmbeach1.avif" alt="Palm Beach Miami, United States">
+            <div class="card-content">
+                <h3>Palm Beach Miami, United States</h3>
+                <p>Blue diamond & Gold studio</p>
+                <p class="price"> $259 / night</p>
+                <a href="#booking" class="book-btn">Book Here</a>
+            </div>
+        </div>
+        <div class="card" onclick="showGallery('islandpines')">
+            <img src="images/islandpines1.avif" alt="Island Pines NYC, United States">
+            <div class="card-content">
+                <h3>Island Pines NYC, United States</h3>
+                <p>The legendary pyramid house</p>
+                <p class="price"> $1140 / night</p>
+                <a href="#booking" class="book-btn">Book Here</a>
+            </div>
+        </div>
     </div>
     <div id="dynamicGallery" class="gallery"></div>
 
@@ -394,6 +412,28 @@
                 'images/california5.avif',
                 'images/california6.avif',
                 'images/california7.avif',
+            ],
+            palmbeach: [
+                'images/palmbeach2.avif',
+                'images/palmbeach3.avif',
+                'images/palmbeach4.avif',
+                'images/palmbeach5.avif',
+                'images/palmbeach6.avif',
+                'images/palmbeach7.avif',
+                'images/palmbeach8.avif',
+                'images/palmbeach9.avif',
+                'images/palmbeach10.avif',
+            ],
+            islandpines: [
+                'images/islandpines2.avif',
+                'images/islandpines3.avif',
+                'images/islandpines4.avif',
+                'images/islandpines5.avif',
+                'images/islandpines6.avif',
+                'images/islandpines7.avif',
+                'images/islandpines8.avif',
+                'images/islandpines9.avif',
+                'images/islandpines10.avif',
             ]
         };
         function showGallery(hotelId){
@@ -417,7 +457,6 @@
 let currentImages = [];
 
 function showGallery(hotelId) {
-    // Get images for the selected hotel
     currentImages = galleries[hotelId];
     if (currentImages && currentImages.length > 0) {
         currentSlideIndex = 0;
@@ -455,7 +494,7 @@ function prevSlide() {
     }
 }
 
-// Close modal when clicking outside
+
 window.onclick = function (event) {
     const modal = document.getElementById('imageModal');
     if (event.target === modal) {
