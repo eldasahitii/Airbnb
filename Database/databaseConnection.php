@@ -5,7 +5,7 @@ class DatabaseConnection{
     private $password="";
     private $database="projekti_final";
 
-    function startConection(){
+    function startConnection(){
         try{
             $con=new PDO(
                 "mysql:host=$this->server;dbname=$this->database",
