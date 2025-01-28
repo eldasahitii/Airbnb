@@ -20,7 +20,9 @@
         <?php
         include_once '..Repository/userRepository.php';
 $userRepository=new UserRepository();
-$users=($users as $user){
+$users = $userRepository->getAllUsers();
+
+foreach($users as $user){
     echo 
     "<tr>
      "
