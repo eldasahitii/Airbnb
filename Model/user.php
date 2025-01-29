@@ -14,6 +14,7 @@ class User{
         $this->surname=$surname;
         $this->email=$email;
         $this->password=$password;
+        $this->confirmP=$confirmP;
 
     }
 function getId(){

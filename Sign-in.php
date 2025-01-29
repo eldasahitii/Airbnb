@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h1>Sign In</h1>
             <form method="POST" action="registerController.php">
                 <label for="firstname">Name:</label><br>
-                <input type="text" id="firstname" name="emir" maxlength="8"><br>
+                <input type="text" id="name" name="emir" maxlength="8"><br>
 
                 <label for="surname">Surname:</label><br>
                 <input type="text" id="surname" name="mbiemri"><br>
@@ -66,13 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="tel" name="phone" id="telephone" placeholder="+XXX-XXX-XXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"><br>
 
                 <label for="email1">Email:</label><br>
-                <input type="email" id="email1" name="email"><br>
+                <input type="email" id="email" name="email"><br>
 
                 <label for="pass">Password:</label><br>
-                <input type="password" id="pass1" name="password" minlength="4" required>
+                <input type="password" id="password" name="password" minlength="4" required>
                 <br>
                 <label for="pass">Confirm Password:</label><br>
-                <input type="password" id="pass2" name="confirmP" minlength="4" required>
+                <input type="password" id="confirmP" name="confirmP" minlength="4" required>
                 
                 <button type="submit" id="submit">Submit</button>
 
@@ -89,10 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 const emriInput = document.getElementById('firstname');
                 const mbiemriInput = document.getElementById('surname');
-                const emailInput = document.getElementById('email1');
+                const emailInput = document.getElementById('email');
                 const telephoneInput = document.getElementById('telephone');
-                const passwordInput = document.getElementById('pass1');
-                const confirmPasswordInput = document.getElementById('pass2');
+                const passwordInput = document.getElementById('password');
+                const confirmPasswordInput = document.getElementById('confirmP');
 
                 if(emriInput.value.trim() === "") {
                     alert("Please enter your name.");
