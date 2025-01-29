@@ -2,7 +2,7 @@
 include_once "./Repository/userRepository.php";
 include_once "./Model/user.php";
 
-
+if($_SERVER['REQUEST_METHOD'] =='POST'){
 if (empty($_POST['name']) || empty($_POST['surname']) || empty($_POST['email']) ||
     empty($_POST['password']) || empty($_POST['confirmP'])) {
     echo "Fill all fields!";
@@ -28,5 +28,6 @@ if (empty($_POST['name']) || empty($_POST['surname']) || empty($_POST['email']) 
 
         echo "User has been registered successfully!";
     }
+}
 }
 ?>

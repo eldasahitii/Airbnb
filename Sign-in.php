@@ -15,7 +15,7 @@ include_once './Controller/registerController.php';
     <div class="signin-page">    
         <div class="Signin-form">
             <h1>Sign In</h1>
-            <form method="POST">
+            <form method="POST" action="registerController.php">
                 <label for="firstname">Name:</label><br>
                 <input type="text" id="firstname" name="fname" maxlength="8"><br>
 
