@@ -1,7 +1,7 @@
 <?php
 
 include_once './Database/databaseConnection.php';
-
+include_once './Model/user.php';
 
 class UserRepository {
     private $connection; 

@@ -18,21 +18,21 @@
             <th>Delete</th>
         </tr>
         <?php
-        include_once '..Repository/userRepository.php';
+        include_once '../Repository/userRepository.php';
 $userRepository=new UserRepository();
 $users = $userRepository->getAllUsers();
 
 foreach($users as $user){
     echo 
     " <tr>
-                <td>$user[Id]</td>
-                <td>$user[Name]</td> 
-                <td>$user[Surname]</td> 
-                <td>$user[Email]</td> 
-                <td>$user[Password]</td>
-                <td>$user[ConfirmP]</td>
-                <td><a href='edit.php?id=$user[Id]'>Edit</a></td>
-                <td><a href='delete.php?id=$user[Id]'>Delete</a></td>
+                <td>{$user['id']}</td>
+                <td>{$user['name']}</td> 
+                <td>{$user['surname']}</td> 
+                <td>{$user['email']}</td> 
+                <td>{$user['password']}</td>
+                <td>{$user['confirmP']}</td>
+                <td><a href='edit.php?id={$user['id']}'>Edit</a></td>
+                <td><a href='delete.php?id={$user['id']}'>Delete</a></td>
             </tr>
             ";
 }

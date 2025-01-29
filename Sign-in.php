@@ -2,7 +2,7 @@
 session_start();
 include_once './Database/databaseConnection.php';
 include_once './Model/user.php';
-include_once './Repository/userRepository.php';
+include_once '../Repository/userRepository.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -57,22 +57,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h1>Sign In</h1>
             <form method="POST" action="registerController.php">
                 <label for="firstname">Name:</label><br>
-                <input type="text" id="firstname" name="fname" maxlength="8"><br>
+                <input type="text" id="firstname" name="emir" maxlength="8"><br>
 
                 <label for="surname">Surname:</label><br>
-                <input type="text" id="surname" name="sname"><br>
+                <input type="text" id="surname" name="mbiemri"><br>
 
                 <label for="telephone">Telephone:</label><br>
                 <input type="tel" name="phone" id="telephone" placeholder="+XXX-XXX-XXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"><br>
 
                 <label for="email1">Email:</label><br>
-                <input type="email" id="email1" name="email1"><br>
+                <input type="email" id="email1" name="email"><br>
 
                 <label for="pass">Password:</label><br>
-                <input type="password" id="pass1" name="pass1" minlength="4" required>
+                <input type="password" id="pass1" name="password" minlength="4" required>
                 <br>
                 <label for="pass">Confirm Password:</label><br>
-                <input type="password" id="pass2" name="pass2" minlength="4" required>
+                <input type="password" id="pass2" name="confirmP" minlength="4" required>
                 
                 <button type="submit" id="submit">Submit</button>
 
@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }); 
     </script>
     <?php  
-    include_once './Controller/registerController.php';
+    include_once '../Controller/registerController.php';
     ?>
 </body>
 </html>
