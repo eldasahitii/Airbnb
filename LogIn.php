@@ -1,3 +1,27 @@
+<?php
+session_start();
+include_once './Database.php';
+include_once './Model/user.php';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $db = new Database();
+    $connection = $db->getConnection();
+    $user = new User($connection);
+
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+  
+    if ($user->login($email, $password)) {
+        header("Location:   Home.php"); 
+        exit;
+    } else {
+        echo "Invalid login credentials!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,11 +44,9 @@
              
                 <button type="submit" id="btn-login"><a href="Home.html">Log In</a></button>
                
-                  <p>First time here?<a href="Sign-in.html"> Sign In</a></p>
+                  <p>First time here?<a href="Sign-in.php"> Sign In</a></p>
 
-            </form>
-
-        
+            </form> 
     </div>
 
 

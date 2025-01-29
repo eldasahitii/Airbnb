@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: LogIn.php"); 
+    exit;
+}
+
+echo "Welcome, " . $_SESSION['email'] . "!";
+?>
+<a href="logout.php">Logout</a>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +30,7 @@
                 <a href="ContactUs.html">Contact Us</a>
                 <a href="Booking.html">Booking</a>
             </nav>
-            <button class="login-btn"><a href="LogIn.html">Log In</a></button>
+            <button class="login-btn"><a href="LogIn.php">Log In</a></button>
         </div>
     </header>
 

@@ -8,9 +8,9 @@ if(isset($_POST['editBtn'])){
     $name = $_POST['name'];
     $surname = $_POST['surname'];
     $email = $_POST['email'];
-    $username = $_POST['username'];
     $password = $_POST['password'];
-    $userRepository->updateUser($id, $name, $surname, $email, $username, $password);
+    $confirmP = $_POST['confirmP'];
+    $userRepository->updateUser($id, $name, $surname, $email, $password, $confirmP);
     header ("location:dashboard.php");
 }
 ?>
@@ -28,8 +28,8 @@ if(isset($_POST['editBtn'])){
         <input type="text" name="name" value="<?=$user['Name'] ?>"> <br> <br>
         <input type="text" name="surname" value="<?=$user['Surname'] ?>"> <br> <br>
         <input type="text" name="email" value="<?=$user['Email'] ?>"> <br> <br>
-        <input type="text" name="username" value="<?=$user['Username'] ?>"> <br> <br>
         <input type="text" name="password" value="<?=$user['Password'] ?>"> <br> <br>
+        <input type="text" name="confirmP" value="<?=$user['Confirm'] ?>"> <br> <br>
         <input type="submit" name="editBtn" value="Save Changes"> <br> <br>
 </form>
 
