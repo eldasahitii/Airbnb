@@ -19,7 +19,7 @@ class DatabaseConnection{
             echo "Database connection failed: ". $e->getMessage();
             return null;
         }
-    }
+    } 
 }
 
 
