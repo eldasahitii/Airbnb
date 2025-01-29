@@ -5,15 +5,15 @@ class DatabaseConnection {
     private $password = "";
     private $database = "projekti_final";
 
-    public function startConnection() {
-        try {
-            $conn = new PDO(
+    function startConnection() {
+        try {    
+            $con = new PDO(
                 "mysql:host=$this->server;dbname=$this->database",
                 $this->username,
                 $this->password
             );
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $conn;
+            $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $con;  
         } catch (PDOException $e) {
             echo "Database connection failed: " . $e->getMessage();
             return null;

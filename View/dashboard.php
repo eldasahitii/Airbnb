@@ -24,9 +24,7 @@ $users = $userRepository->getAllUsers();
 
 foreach($users as $user){
     echo 
-    "<tr>
-     "
-            <tr>
+    " <tr>
                 <td>$user[Id]</td>
                 <td>$user[Name]</td> 
                 <td>$user[Surname]</td> 
@@ -36,7 +34,7 @@ foreach($users as $user){
                 <td><a href='edit.php?id=$user[Id]'>Edit</a></td>
                 <td><a href='delete.php?id=$user[Id]'>Delete</a></td>
             </tr>
-            ";"
+            ";
 }
 
         ?>

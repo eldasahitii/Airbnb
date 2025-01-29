@@ -1,88 +1,97 @@
 <?php
-include_once "../Database/databaseConnection.php";
+
+include_once './Database/databaseConnection.php';
 
 
-class UserRepository{
-    private $connection;
+class UserRepository {
+    private $connection; 
 
-    function __construct(){
-        $conn = new DatabaseConnection();
-        $this->connection= $conn->startConnection();
-
+   
+    function __construct() {
+        $conn = new DatabaseConnection(); 
+        $this->connection = $conn->startConnection(); 
     }
 
-    function insertUser($user){
-        $conn=$this->connection;
 
-        $id=$user->getId();
-        $name=$user->getName();
-        $surname=$user->getSurname();
-        $email=$user->getEmail();
-        $username=$user->getUsername();
-        $password=$user->getPassword();
+    function insertUser($user) {
+        $conn = $this->connection;
 
-        $sql="INSERT INTO user(id, name, surname, email, username, password) VALUES (?,?,?,?,?,?)";
+   
+        $id = $user->getId();
+        $name = $user->getName();
+        $surname = $user->getSurname();
+        $email = $user->getEmail();
+        $password = $user->getPassword();
+        $confirmP=$user->getConfirmP();
 
-        $statement=$conn->prepare($sql);
+   
+        $sql = "INSERT INTO user (id, name, surname, email, password, confirmP) VALUES (?,?,?,?,?,?)";
 
-        $statement->execute([$id,$name,$surname,$email,$username,$password]);
-        echo "<script> alert ("User has been inserted succesessfully!"); </script>";
+        $statement = $conn->prepare($sql); 
 
+   
+        $statement->execute([$id, $name, $surname, $email, $password, $confirmP]);
 
-
-    }
-    function getAllUsers(){
-        $conn=$this->connection;
-        $sql="SELECT * FROM user ";
-        $statement=$conn->query($sql);
-        $users=$statement->fetch();
-
-        return $users;
-
-
+       
+        echo "<script> alert('User has been inserted successfully!'); </script>";
     }
 
-    function getUserById(){
-        $conn=$this->connection;
+    function getAllUsers() {
+        $conn = $this->connection;
 
-        $sql="SELECT * FROM user WHERE id="$id"";
+        $sql = "SELECT * FROM user";
 
-        $statement=$conn->query($sql);
-        $user=$statement->fetch();
+        $statement = $conn->query($sql); 
+        $users = $statement->fetchAll(); 
+
+        return $users; 
+    }
+
+    
+    function getUserById($id) {
+        $conn = $this->connection;
+
+     
+        $sql = "SELECT * FROM user WHERE id='$id'";
+
+        $statement = $conn->query($sql); 
+        $user = $statement->fetch(); 
 
         return $user;
     }
- 
-    function updateUser($id,$name,$surname,$email,$username,$password){
-        $conn=$this->connection;
-        $sql="UPDATE user SET name=?,surname=?,email=?,username=?,password=? WHERE id=?";
-        
-        $statement=$conn->preapare($sql);
-        $statement->execute([$id, $name, $surname, $email, $surname, $password]);
-        echo "<script> alert("Update was successfully!"); </script>";
+
+    
+    function updateUser($id, $name, $surname, $email, $password, $confirmP) {
+        $conn = $this->connection;
 
 
+        $sql = "UPDATE user SET name=?, surname=?, email=?, password=?, confirmP=? WHERE id=?";
+
+        $statement = $conn->prepare($sql); 
+
+      
+        $statement->execute([$name, $surname, $email, $password,$confirmP, $id]);
+
+      
+        echo "<script>alert('Update was successful');</script>";
     }
 
-    function deleteUser($id){
-        $conn=$this->connection;
-        $sql="DELETE FROM user WHERE id=?";
-        $statement=$conn->prepare($sql);
+    
+    function deleteUser($id) {
+        $conn = $this->connection;
+
+      
+        $sql = "DELETE FROM user WHERE id=?";
+
+        $statement = $conn->prepare($sql); 
+
+       
         $statement->execute([$id]);
-        echo "<script> alert('Delete was successfully!);</script>";
 
+       
+        echo "<script>alert('Delete was successful');</script>";
     }
-
-
-
-
-
-
-
-
-
 }
-
 
 
 ?>
