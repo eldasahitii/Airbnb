@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="login-page">
           
-            <form class="login-form">
+            <form class="login-form" method="POST">
                 <h1>Log In</h1>
               <label for="email">Email address:</label><br>
               <input type="email" id="email" name="mail" placeholder="testest@test.com">
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <label for="password">Password:</label><br>
               <input type="password" id="password" name="pass" required>
              
-                <button type="submit" id="btn-login"><a href="Home.html">Log In</a></button>
+                <button type="submit" id="btn-login">Log In</button>
                
                   <p>First time here?<a href="Sign-in.php"> Sign In</a></p>
 
@@ -58,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           event.preventDefault();
           const emailaddress=document.getElementById('email');
           const passwordi=document.getElementById('password');
+          
           if(emailaddress.value.trim()===""){
             alert("Please enter your Email.");
             emailaddress.focus();
@@ -86,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             return false;
           }
           alert("Log In completed successfully!");
-          window.location.href = "home.html"; 
+          window.location.href = "Home.php"; 
           document.getElementById('login-form').submit();
         };
         btnSubmit.addEventListener("click",validate);
