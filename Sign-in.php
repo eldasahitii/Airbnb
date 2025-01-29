@@ -1,7 +1,47 @@
 <?php
-include_once './Controller/registerController.php';
+session_start();
+include_once './Database/databaseConnection.php';
+include_once './Model/user.php';
+include_once './Repository/userRepository.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $db = new databaseConnection();
+    $connection = $db->getConnection();
+    $userRepository = new userRepository($connection);  
+
+    $name = filter_input(INPUT_POST, 'emri', FILTER_SANITIZE_STRING);
+    $surname = filter_input(INPUT_POST, 'mbiemri', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $password = $_POST['password'];
+    $confirmP = $_POST['confirmP'];
+
+    $errors = [];
+    if (empty($name)) $errors[] = "Name is required.";
+    if (empty($surname)) $errors[] = "Surname is required.";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email format.";
+    if (strlen($password) < 8) $errors[] = "Password must be at least 8 characters.";
+    if ($password !==$confirmP){$errors[]="Passwords should match.";}
+
+    if (empty($errors)) {
+      $user = new User($name, $surname, $email, $password,$confirmP);
+
+      if ($userRepository->insertUser($user)) {
+          header("Location: ./LogIn.php");
+          exit();
+      } else {
+          $error = "Registration failed. Email might already exist.";
+      }
+  } else {
+      $error = implode("<br>", $errors);
+  }
+}
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,12 +151,10 @@ include_once './Controller/registerController.php';
                 
                 
                     submit.addEventListener("click",validate);
-                });
-            
-        
-
-            
-        
+                }); 
     </script>
+    <?php  
+    include_once './Controller/registerController.php';
+    ?>
 </body>
 </html>
