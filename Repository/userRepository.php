@@ -1,7 +1,7 @@
 <?php
 
-include_once './Database/databaseConnection.php';
-include_once './Model/user.php';
+include_once('C:/xampp/htdocs/Airbnb/Database/DatabaseConnection.php');
+include_once('C:/xampp/htdocs/Airbnb/Model/user.php');
 
 class UserRepository {
     private $connection; 
@@ -33,7 +33,7 @@ class UserRepository {
         $statement->execute([$id, $name, $surname, $email, $password, $confirmP]);
 
        
-        echo "<script> alert('User has been inserted successfully!'); </script>";
+        echo "<script> alert('User has been inserted successfully!');  window.location.href='LogIn.php'; </script>";
     }
 
     function getAllUsers() {

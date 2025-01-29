@@ -3,12 +3,12 @@ class DatabaseConnection {
     private $server = "localhost";
     private $username = "root";
     private $password = "";
-    private $database = "projekti_final";
+    private $dbname = "projekti_final";
 
     public function startConnection() {
         try {
             $conn = new PDO(
-                "mysql:host=$this->server;dbname=$this->database",
+                "mysql:host=$this->server;dbname=$this->dbname",
                 $this->username,
                 $this->password
             );

@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once './Database/databaseConnection.php';
-include_once './Model/user.php';
-include_once '../Repository/userRepository.php';
+include_once('C:/xampp/htdocs/Airbnb/Database/DatabaseConnection.php');
+include_once('C:/xampp/htdocs/Airbnb/Repository/userRepository.php');
+include_once('C:/xampp/htdocs/Airbnb/Model/user.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -55,15 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="signin-page">    
         <div class="Signin-form">
             <h1>Sign In</h1>
-            <form method="POST" action="registerController.php">
+            <form method="POST" id="signin-form" action="./Controller/registerController.php">
                 <label for="firstname">Name:</label><br>
-                <input type="text" id="name" name="emir" maxlength="8"><br>
+                <input type="text" id="name" name="name" maxlength="8"><br>
 
                 <label for="surname">Surname:</label><br>
-                <input type="text" id="surname" name="mbiemri"><br>
-
-                <label for="telephone">Telephone:</label><br>
-                <input type="tel" name="phone" id="telephone" placeholder="+XXX-XXX-XXX" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"><br>
+                <input type="text" id="surname" name="surname"><br>
 
                 <label for="email1">Email:</label><br>
                 <input type="email" id="email" name="email"><br>
@@ -87,10 +84,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             const validate=(event) => {
                 event.preventDefault();
 
-                const emriInput = document.getElementById('firstname');
+                const emriInput = document.getElementById('name');
                 const mbiemriInput = document.getElementById('surname');
                 const emailInput = document.getElementById('email');
-                const telephoneInput = document.getElementById('telephone');
+                // const telephoneInput = document.getElementById('telephone');
                 const passwordInput = document.getElementById('password');
                 const confirmPasswordInput = document.getElementById('confirmP');
 
@@ -109,16 +106,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     emailInput.focus();
                     return false;
                 }
-                const phoneRegex = /^\+?[0-9]{10,15}$/; 
-    if (telephoneInput.value.trim() === "") {
-      alert("Please enter your phone number.");
-      telephoneInput.focus();
-      return false;
-    } else if (!phoneRegex.test(telephoneInput.value.trim())) {
-      alert("Please enter a valid phone number.");
-      telephoneInput.focus();
-      return false;
-    }
+    //             const phoneRegex = /^\+?[0-9]{10,15}$/; 
+    // if (telephoneInput.value.trim() === "") {
+    //   alert("Please enter your phone number.");
+    //   telephoneInput.focus();
+    //   return false;
+    // } else if (!phoneRegex.test(telephoneInput.value.trim())) {
+    //   alert("Please enter a valid phone number.");
+    //   telephoneInput.focus();
+    //   return false;
+    // }
                 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
                 if (!emailRegex.test(emailInput.value.trim())){
                     alert("Please enter a valid Email.");
@@ -146,15 +143,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     return false;
                     }
                     alert("Sign In completed successfully!");
-                    document.getElementById('signin-form').submit();
-                };
-                
-                
-                    submit.addEventListener("click",validate);
-                }); 
+          document.getElementById('signin-form').submit();
+        };
+        submit.addEventListener("click",validate);
+      }); 
+
     </script>
+
     <?php  
-    include_once '../Controller/registerController.php';
+include_once('C:/xampp/htdocs/Airbnb/Controller/registerController.php');
+;
     ?>
 </body>
 </html>

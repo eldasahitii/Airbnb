@@ -1,7 +1,9 @@
 <?php
 session_start();
-include_once './Database.php';
-include_once './Model/user.php';
+include_once('C:/xampp/htdocs/Airbnb/Database/DatabaseConnection.php');
+include_once('C:/xampp/htdocs/Airbnb/Repository/userRepository.php');
+include_once('C:/xampp/htdocs/Airbnb/Model/user.php');
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db = new Database();
@@ -17,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location:   Home.php"); 
         exit;
     } else {
-        echo "Invalid login credentials!";
+        echo "<script>alert('Invalid login credentials!');</script>";
     }
 }
 ?>
@@ -33,14 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <div class="login-page">
           
-            <form class="login-form" method="POST">
+            <form class="login-form" id="login-form" method="POST">
                 <h1>Log In</h1>
               <label for="email">Email address:</label><br>
-              <input type="email" id="email" name="mail" placeholder="testest@test.com">
+              <input type="email" id="email" name="email" placeholder="testest@test.com">
                 
 
               <label for="password">Password:</label><br>
-              <input type="password" id="password" name="pass" required>
+              <input type="password" id="password" name="password" >
              
                 <button type="submit" id="btn-login">Log In</button>
                
@@ -87,10 +89,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             return false;
           }
           alert("Log In completed successfully!");
-          window.location.href = "Home.php"; 
           document.getElementById('login-form').submit();
         };
         btnSubmit.addEventListener("click",validate);
+      
       });
     
       
