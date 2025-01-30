@@ -1,45 +1,47 @@
 <?php
+
 class User {
-    private $conn;
-    private $table_name = 'user';
 
-    public function __construct($db) {
-        $this->conn = $db;
+    private $id;        
+    private $name;       
+    private $surname;    
+    private $email;      
+   
+    private $password;  
+
+
+    function __construct($id, $name, $surname, $email, $password) {
+        $this->id = $id;              
+        $this->name = $name;           
+        $this->surname = $surname;    
+        $this->email = $email;        
+        $this->password = $password;   
     }
 
-    public function register($name, $surname, $email, $password) {
-        $query = "INSERT INTO {$this->user} (name, surname, email, password) VALUES (:name, :surname, :email, :password)";
-
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':surname', $surname);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT)); 
-
-        if ($stmt->execute()) {
-            return true;
-        }
-        return false;
+ 
+    function getId() {
+        return $this->id;
     }
 
-    public function login($email, $password) {
-        $query = "SELECT id, name, surname, email, password FROM {$this->table_name} WHERE email = :email";
+  
+    function getName() {
+        return $this->name;
+    }
 
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->execute();
+   
+    function getSurname() {
+        return $this->surname;
+    }
 
-       
-        if ($stmt->rowCount() > 0) {
-            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-            if (password_verify($password, $row['password'])) {
-                session_start();
-                $_SESSION['user_id'] = $row['id'];
-                $_SESSION['email'] = $row['email'];
-                return true;
-            }
-        }
-        return false;
+  
+    function getEmail() {
+        return $this->email;
+    }
+
+  
+    function getPassword() {
+        return $this->password;
     }
 }
+
 ?>

@@ -5,10 +5,14 @@ if (!isset($_SESSION['email'])) {
     header("Location: LogIn.php"); 
     exit;
 }
-
-echo "Welcome, " . $_SESSION['email'] . "!";
+$email = $_SESSION['email'];
 ?>
-<a href="Logout.php">Logout</a>
+
+<div style="background-color:#2c3e50; color: white; padding: 20px 20px; text-align: center; font-size: 16px; font-weight: normal; border-radius: 5px; position: absolute; top: 0; right: 0; z-index: 9999;">
+    Welcome, <?php echo $email; ?>!
+    <a href="Logout.php" style="text-decoration: none; color: white; background-color: #f44336; padding: 5px 10px; border-radius: 5px; font-size: 14px; margin-left: 15px;">Logout</a>
+</div>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +32,7 @@ echo "Welcome, " . $_SESSION['email'] . "!";
                 <a href="AboutUs.html">About Us</a>
                 <a href="Apartments.html">Apartments</a>
                 <a href="ContactUs.html">Contact Us</a>
-                <a href="Booking.html">Booking</a>
+                <a href="Booking.php">Booking</a>
             </nav>
             <button class="login-btn"><a href="LogIn.php">Log In</a></button>
         </div>

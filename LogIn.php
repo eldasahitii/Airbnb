@@ -1,48 +1,32 @@
 <?php
 session_start();
 include_once 'Database.php';
-include_once 'user.php';
 include_once 'userRepository.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db = new Database();
     $connection = $db->getConnection();
-    $user = new User($connection);
-    
-    
    
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $userRepository = new UserRepository();
+    $userData = $userRepository->getUserByEmail($email);
 
-    if($user->Login($email, $password)){
-      
-      header("Location: Home.php");
-        exit;
-           } else {
-             echo "Invalid login credentials!";
-          }
-    }
-    
+    if ($userData) {
+      $hashedPassword = $userData['password'];
 
-//     $userRepository = new UserRepository($connection);
-//     $userData = $userRepository->getUserByEmail($email);
-
-//     if ($userData) {
-     
-//       $hashedPassword = $userData['password'];
-  
-    
-//       if (password_verify($password, $hashedPassword)) {
-//           $_SESSION['user_id'] = $userData['id'];
-//           header("Location: Home.php");
-//           exit;
-//       } else {
-//           echo "Invalid login credentials!";
-//       }
-//   } else {
-//       echo "User not found!";
-//   }
-// }
+      if (password_verify($password, $hashedPassword)) {
+          $_SESSION['user_id'] = $userData['id'];
+          $_SESSION['email'] = $userData['email'];
+          header("Location: Home.php"); 
+          exit;
+      } else {
+          echo "<script>alert('Invalid email or password!');</script>";
+      }
+  } else {
+      echo "<script>alert('User not found!');</script>";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -109,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             passwordi.focus();
             return false;
           }
-          alert("Log In completed successfully!");
+          // alert("Log In completed successfully!");
           document.getElementById('login-form').submit();
         };
         btnSubmit.addEventListener("click",validate);
