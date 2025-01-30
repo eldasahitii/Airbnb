@@ -1,28 +1,3 @@
-<?php
-session_start();
-include_once('C:/xampp/htdocs/Airbnb/Database/DatabaseConnection.php');
-include_once('C:/xampp/htdocs/Airbnb/Repository/userRepository.php');
-include_once('C:/xampp/htdocs/Airbnb/Model/user.php');
-
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $db = new Database();
-    $connection = $db->getConnection();
-    $user = new User($connection);
-
-
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-  
-    if ($user->login($email, $password)) {
-        header("Location:   Home.php"); 
-        exit;
-    } else {
-        echo "<script>alert('Invalid login credentials!');</script>";
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">

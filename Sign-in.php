@@ -1,45 +1,3 @@
-<?php
-session_start();
-include_once('C:/xampp/htdocs/Airbnb/Database/DatabaseConnection.php');
-include_once('C:/xampp/htdocs/Airbnb/Repository/userRepository.php');
-include_once('C:/xampp/htdocs/Airbnb/Model/user.php');
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $db = new databaseConnection();
-    $connection = $db->getConnection();
-    $userRepository = new userRepository($connection);  
-
-    $name = filter_input(INPUT_POST, 'emri', FILTER_SANITIZE_STRING);
-    $surname = filter_input(INPUT_POST, 'mbiemri', FILTER_SANITIZE_STRING);
-    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    $password = $_POST['password'];
-    $confirmP = $_POST['confirmP'];
-
-    $errors = [];
-    if (empty($name)) $errors[] = "Name is required.";
-    if (empty($surname)) $errors[] = "Surname is required.";
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email format.";
-    if (strlen($password) < 8) $errors[] = "Password must be at least 8 characters.";
-    if ($password !==$confirmP){$errors[]="Passwords should match.";}
-
-    if (empty($errors)) {
-      $user = new User($name, $surname, $email, $password,$confirmP);
-
-      if ($userRepository->insertUser($user)) {
-          header("Location: ./LogIn.php");
-          exit();
-      } else {
-          $error = "Registration failed. Email might already exist.";
-      }
-  } else {
-      $error = implode("<br>", $errors);
-  }
-}
-?>
-
 
 
 <!DOCTYPE html>
@@ -55,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="signin-page">    
         <div class="Signin-form">
             <h1>Sign In</h1>
-            <form method="POST" id="signin-form" action="./Controller/registerController.php">
+            <form method="POST" id="signin-form" action="">
                 <label for="firstname">Name:</label><br>
                 <input type="text" id="name" name="name" maxlength="8"><br>
 
@@ -67,10 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <label for="pass">Password:</label><br>
                 <input type="password" id="password" name="password" minlength="4" required>
-                <br>
-                <label for="pass">Confirm Password:</label><br>
-                <input type="password" id="confirmP" name="confirmP" minlength="4" required>
-                
+               
                 <button type="submit" id="submit">Submit</button>
 
 
@@ -87,9 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 const emriInput = document.getElementById('name');
                 const mbiemriInput = document.getElementById('surname');
                 const emailInput = document.getElementById('email');
-                // const telephoneInput = document.getElementById('telephone');
                 const passwordInput = document.getElementById('password');
-                const confirmPasswordInput = document.getElementById('confirmP');
+                // const confirmPasswordInput = document.getElementById('confirmP');
 
                 if(emriInput.value.trim() === "") {
                     alert("Please enter your name.");
@@ -137,11 +91,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         passwordInput.focus();
                         return false;
                     }
-                    if (passwordInput.value.trim() !== confirmPasswordInput.value.trim()) {
-                    alert("Passwords do not match.");
-                    confirmPasswordInput.focus();
-                    return false;
-                    }
+                    // if (passwordInput.value.trim() !== confirmPasswordInput.value.trim()) {
+                    // alert("Passwords do not match.");
+                    // confirmPasswordInput.focus();
+                    // return false;
+                    // }
                     alert("Sign In completed successfully!");
           document.getElementById('signin-form').submit();
         };
@@ -150,9 +104,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     </script>
 
-    <?php  
-include_once('C:/xampp/htdocs/Airbnb/Controller/registerController.php');
-;
-    ?>
+   
 </body>
 </html>
