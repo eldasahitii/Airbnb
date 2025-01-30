@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if($user->Login($email, $password)){
       
       header("Location: Home.php");
-               exit;
+        exit;
            } else {
              echo "Invalid login credentials!";
           }
