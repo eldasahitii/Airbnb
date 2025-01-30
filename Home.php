@@ -1,4 +1,14 @@
+<?php
+session_start();
 
+if (!isset($_SESSION['id'])) {
+    header("Location: LogIn.php"); 
+    exit;
+}
+
+echo "Welcome, " . $_SESSION['email'] . "!";
+?>
+<a href="Logout.php">Logout</a>
 <!DOCTYPE html>
 <html lang="en">
 <head>

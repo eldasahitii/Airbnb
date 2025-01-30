@@ -1,3 +1,46 @@
+<?php
+session_start();
+include_once 'Database.php';
+include_once 'user.php';
+include_once 'userRepository.php'; 
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $db = new Database();
+    $connection = $db->getConnection();
+    
+   
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+
+    $userRepository = new UserRepository($connection);
+    $userData = $userRepository->getUserByEmail($email);
+
+   
+    if ($userData) {
+        
+        $user = new User(
+            $userData['id'], 
+            $userData['name'], 
+            $userData['surname'], 
+            $userData['email'], 
+            $userData['password']
+        );
+
+       
+        if (password_verify($password, $user->getPassword())) {
+           
+            $_SESSION['user_id'] = $user->getId();
+            header("Location: Home.php");
+            exit;
+        } else {
+            echo "Invalid login credentials!";
+        }
+    } else {
+        echo "User not found!";
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
