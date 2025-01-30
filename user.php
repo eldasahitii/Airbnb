@@ -8,15 +8,13 @@ class User {
     }
 
     public function register($name, $surname, $email, $password) {
-        $query = "INSERT INTO {$this->table_name} (name, surname, email, password) VALUES (:name, :surname, :email, :password)";
+        $query = "INSERT INTO {$this->user} (name, surname, email, password) VALUES (:name, :surname, :email, :password)";
 
         $stmt = $this->conn->prepare($query);
-
-        // Bind parameters
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':surname', $surname);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT)); // Hashing the password
+        $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT)); 
 
         if ($stmt->execute()) {
             return true;
