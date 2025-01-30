@@ -7,39 +7,42 @@ include_once 'userRepository.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $db = new Database();
     $connection = $db->getConnection();
+    $user = new User($connection);
+    
     
    
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-
-    $userRepository = new UserRepository($connection);
-    $userData = $userRepository->getUserByEmail($email);
-
-   
-    if ($userData) {
-        
-        $user = new User(
-            $userData['id'], 
-            $userData['name'], 
-            $userData['surname'], 
-            $userData['email'], 
-            $userData['password']
-        );
-
-       
-        if (password_verify($password, $user->getPassword())) {
-           
-            $_SESSION['user_id'] = $user->getId();
-            header("Location: Home.php");
-            exit;
-        } else {
-            echo "Invalid login credentials!";
-        }
-    } else {
-        echo "User not found!";
+    if($user->Login($email, $password)){
+      
+      header("Location: Home.php");
+               exit;
+           } else {
+             echo "Invalid login credentials!";
+          }
     }
-}
+    
+
+//     $userRepository = new UserRepository($connection);
+//     $userData = $userRepository->getUserByEmail($email);
+
+//     if ($userData) {
+     
+//       $hashedPassword = $userData['password'];
+  
+    
+//       if (password_verify($password, $hashedPassword)) {
+//           $_SESSION['user_id'] = $userData['id'];
+//           header("Location: Home.php");
+//           exit;
+//       } else {
+//           echo "Invalid login credentials!";
+//       }
+//   } else {
+//       echo "User not found!";
+//   }
+// }
 ?>
 
 <!DOCTYPE html>

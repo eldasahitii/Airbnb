@@ -80,16 +80,16 @@ class UserRepository {
     function getUserByEmail($email) {
         $conn = $this->connection;
 
-        // Use prepared statements to avoid SQL injection
+        
         $sql = "SELECT * FROM user WHERE email = :email";
         $statement = $conn->prepare($sql);
         $statement->bindParam(':email', $email, PDO::PARAM_STR);
         $statement->execute();
 
-        // Fetch the user data if available
+       
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-        return $user; // Returns user data or false if not found
+        return $user; 
     }
 }
 

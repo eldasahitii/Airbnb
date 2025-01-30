@@ -1,38 +1,47 @@
 <?php
 class User {
-    private $id;
-    private $name;
-    private $surname;
-    private $email;
-    private $password;
+    private $conn;
+    private $table_name = 'user';
 
-    public function __construct($id, $name, $surname, $email, $password) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->email = $email;
-        $this->password = password_hash($password, PASSWORD_DEFAULT); // Secure the password
+    public function __construct($db) {
+        $this->conn = $db;
     }
 
- 
-    public function getId() {
-        return $this->id;
+    public function register($name, $surname, $email, $password) {
+        $query = "INSERT INTO {$this->table_name} (name, surname, email, password) VALUES (:name, :surname, :email, :password)";
+
+        $stmt = $this->conn->prepare($query);
+
+        // Bind parameters
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':surname', $surname);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT)); // Hashing the password
+
+        if ($stmt->execute()) {
+            return true;
+        }
+        return false;
     }
 
-    public function getName() {
-        return $this->name;
-    }
+    public function login($email, $password) {
+        $query = "SELECT id, name, surname, email, password FROM {$this->table_name} WHERE email = :email";
 
-    public function getSurname() {
-        return $this->surname;
-    }
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
 
-    public function getEmail() {
-        return $this->email;
-    }
-
-    public function getPassword() {
-        return $this->password;
+       
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (password_verify($password, $row['password'])) {
+                session_start();
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['email'] = $row['email'];
+                return true;
+            }
+        }
+        return false;
     }
 }
 ?>
