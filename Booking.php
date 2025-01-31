@@ -23,9 +23,9 @@ $email = $_SESSION['email'];
         </div>
             <nav>
                 <a href="Home.php">Home</a>
-                <a href="AboutUs.html">About Us</a>
-                <a href="Apartments.html">Apartments</a>
-                <a href="ContactUs.html">Contact Us</a>
+                <a href="AboutUs.php">About Us</a>
+                <a href="Apartments.php">Apartments</a>
+                <a href="ContactUs.php">Contact Us</a>
                 <a href="#booking">Booking</a>
             </nav>
             <button class="login-btn"><a href="LogIn.html">Log In</a></button>

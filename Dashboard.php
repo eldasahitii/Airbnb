@@ -34,8 +34,8 @@ $users = $userRepository->getAllUsers();
             <th>EMAIL</th>
             <th>PASSWORD</th>
             <th>Role</th>
-            <!-- <th>Edit</th> 
-            <th>Delete</th>  -->
+            <th>Edit</th> 
+            <th>Delete</th> 
         </tr>
 
         <?php 
@@ -51,6 +51,8 @@ $users = $userRepository->getAllUsers();
                 <td>$user[email]</td> 
                 <td>$user[password]</td>
                 <td>$user[role]</td>
+                 <td><a href='edit.php?id=$user[id]'>Edit</a></td> 
+                <td><a href='delete.php?id=$user[id]'>Delete</a></td>
               
             </tr>
             ";
