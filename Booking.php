@@ -36,7 +36,7 @@ $email = $_SESSION['email'];
     <h1 id="h1-b">Apartment Booking</h1>
     
     <div class="booking-container">
- <form id="book" action="bookingController.php" method="POST">
+ <form id="book" action="BookingController.php" method="POST">
     <select id="apartment" name="apartment" required>
         <option value="" disabled selected>Choose your Apartment  </option>
         <option value="1">Salish Lodge and Spa - Washington, United States</option>

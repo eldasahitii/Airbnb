@@ -18,7 +18,6 @@ class User {
         $this->role = $role;
     }
 
- 
     function getId() {
         return $this->id;
     }

@@ -1,5 +1,6 @@
 <?php
 class Booking {
+    private $id;
     private $apartment;
     private $name;
     private $surname;
@@ -10,8 +11,9 @@ class Booking {
     private $adults;
     private $kids;
     private $special_request;
+    private $created_at;
 
-    public function __construct($apartment, $name, $surname, $phone, $email, $check_in, $check_out, $adults, $kids, $special_request) {
+    public function __construct($apartment, $name, $surname, $phone, $email, $check_in, $check_out, $adults, $kids, $special_request=null) {
         $this->apartment = $apartment;
         $this->name = $name;
         $this->surname = $surname;
@@ -23,6 +25,8 @@ class Booking {
         $this->kids = $kids;
         $this->special_request = $special_request;
     }
+    public function getId() { 
+        return $this->id; }
 
     public function getApartment() {
         return $this->apartment;
