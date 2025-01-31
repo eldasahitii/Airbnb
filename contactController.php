@@ -1,6 +1,7 @@
 <?php
 
 include_once 'contactRepository.php';
+include_once 'contactModel.php';
 
 class ContactController {
     private $repo;

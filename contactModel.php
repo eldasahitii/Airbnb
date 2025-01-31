@@ -17,12 +17,18 @@ class Contact {
         $this->created_at = $created_at;
     }
 
-    public function getId() { return $this->id; }
-    public function getName() { return $this->name; }
-    public function getEmail() { return $this->email; }
-    public function getMessage() { return $this->message; }
-    public function isRead() { return $this->is_read; }
-    public function getCreatedAt() { return $this->created_at; }
+    public function getId() { 
+        return $this->id; }
+    public function getName() { 
+        return $this->name; }
+    public function getEmail() { 
+        return $this->email; }
+    public function getMessage() { 
+        return $this->message; }
+    public function isRead() { 
+        return $this->is_read; }
+    public function getCreatedAt() { 
+        return $this->created_at; }
 }
 
 ?>

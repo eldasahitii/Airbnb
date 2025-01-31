@@ -4,45 +4,61 @@ include_once 'Database.php';
 include_once 'contactModel.php';
 
 class ContactRepository {
-    private $conn;
+    private $connection;
 
     public function __construct() {
         $database = new Database();
-        $this->conn = $database->getConnection();
+        $this->connection = $database->getConnection();
     }
 
-    public function insertMessage(Contact $message) {
+    public function insertMessage($message) {
+        $conn = $this->connection;
+
+        
+        $name = $message->getName();
+        $email = $message->getEmail();
+        $messageContent = $message->getMessage();
+        $isRead = $message->isRead();
+
+        
+        $sql = "INSERT INTO inbox (name, email, message, is_read, created_at) VALUES (?, ?, ?, ?, NOW())";
+        $statement = $conn->prepare($sql);
+        $statement->execute([$name, $email, $messageContent, $isRead]);
+
+        
+        echo "<script>alert('Message has been inserted successfully!');</script>";
+    }
+
+    public function getAllMessages() {
+        $conn = $this->connection;
+        
+        $sql = "SELECT * FROM contacts";
+        $statement = $conn->query($sql);
+        $messages = $statement->fetchAll();
+
+        return $messages;
+    }
+
+    public function deleteMessage($id) {
         try {
-            $sql = "INSERT INTO contacts (name, email, message, is_read, created_at) VALUES (?, ?, ?, ?, NOW())";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([
-                $message->getName(),
-                $message->getEmail(),
-                $message->getMessage(),
-                $message->isRead()
-            ]);
+            $sql = "DELETE FROM inbox WHERE id = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
             return true;
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             return false;
         }
     }
 
-    public function getAllMessages() {
-        $sql = "SELECT * FROM contacts ORDER BY id DESC";
-        $stmt = $this->conn->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function markAsRead($id) {
-        $sql = "UPDATE contacts SET is_read = 1 WHERE id = ?";
-        $stmt = $this->conn->prepare($sql);
-        return $stmt->execute([$id]);
-    }
-
-    public function deleteMessage($id) {
-        $sql = "DELETE FROM contacts WHERE id = ?";
-        $stmt = $this->conn->prepare($sql);
-        return $stmt->execute([$id]);
+        try {
+            $sql = "UPDATE inbox SET is_read = 1 WHERE id = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->execute([$id]);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 }
 
