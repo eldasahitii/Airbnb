@@ -11,9 +11,9 @@ class Booking {
     private $adults;
     private $kids;
     private $special_request;
-    private $created_at;
 
-    public function __construct($apartment, $name, $surname, $phone, $email, $check_in, $check_out, $adults, $kids, $special_request=null) {
+    public function __construct($id, $apartment, $name, $surname, $phone, $email, $check_in, $check_out, $adults, $kids, $special_request) {
+        $this->id = $id;
         $this->apartment = $apartment;
         $this->name = $name;
         $this->surname = $surname;
@@ -25,48 +25,36 @@ class Booking {
         $this->kids = $kids;
         $this->special_request = $special_request;
     }
-    public function getId() { 
-        return $this->id; }
 
     public function getApartment() {
-        return $this->apartment;
-    }
-
+         return $this->apartment; 
+        }
     public function getName() {
-        return $this->name;
-    }
-
-    public function getSurname() {
+         return $this->name; 
+        }
+    public function getSurname() { 
         return $this->surname;
-    }
-
+     }
     public function getPhone() {
-        return $this->phone;
-    }
-
+         return $this->phone;
+         }
     public function getEmail() {
-        return $this->email;
-    }
-
+         return $this->email; 
+        }
     public function getCheckIn() {
-        return $this->check_in;
-    }
-
+         return $this->check_in;
+         }
     public function getCheckOut() {
-        return $this->check_out;
-    }
-
+         return $this->check_out; 
+        }
     public function getAdults() {
-        return $this->adults;
+         return $this->adults;
+         }
+    public function getKids() { 
+        return $this->kids; 
     }
-
-    public function getKids() {
-        return $this->kids;
-    }
-
     public function getSpecialRequest() {
-        return $this->special_request;
-    }
+         return $this->special_request; 
+        }
 }
-
 ?>

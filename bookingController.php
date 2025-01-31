@@ -1,40 +1,53 @@
 <?php
-require_once 'BookingModel.php';
-require_once 'BookingRepository.php';
-
-
 session_start();
-if (!isset($_SESSION['email'])) {
-    header("Location: LogIn.php");
-    exit();
-}
+include_once 'BookingModel.php';
+include_once 'BookingRepository.php';
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  
-    $apartment = $_POST['apartment'];
-    $name = $_POST['name'];
-    $surname = $_POST['surname'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $check_in = $_POST['checkin'];
-    $check_out = $_POST['checkout'];
-    $adults = $_POST['adults'];
-    $kids = $_POST['kids'];
-    $special_request = isset($_POST['special_request']) ? $_POST['special_request'] : null;
+    if (
+        isset($_POST['apartment'], $_POST['name'], $_POST['surname'], $_POST['phone'], $_POST['email'], 
+              $_POST['checkin'], $_POST['checkout'], $_POST['adults'], $_POST['kids'])
+    ) {
+       
+        $apartment = trim($_POST['apartment']);
+        $name = trim($_POST['name']);
+        $surname = trim($_POST['surname']);
+        $phone = trim($_POST['phone']);
+        $email = trim($_POST['email']);
+        $check_in = trim($_POST['checkin']);
+        $check_out = trim($_POST['checkout']);
+        $adults = trim($_POST['adults']);
+        $kids = trim($_POST['kids']);
+        $special_request = isset($_POST['special_request']) ? trim($_POST['special_request']) : null;
+      
+        if (empty($apartment) || empty($name) || empty($surname) || empty($phone) || empty($email) || empty($check_in) || empty($check_out) || empty($adults) || empty($kids)) {
+            echo "<script>alert('All fields are required!'); window.history.back();</script>";
+            exit();
+        }
 
-  
-    $booking = new BookingModel($apartment, $name, $surname, $phone, $email, $check_in, $check_out, $adults, $kids, $special_request);
+     
+        $booking = new Booking(null, $apartment, $name, $surname, $phone, $email, $check_in, $check_out, $adults, $kids, $special_request);
 
-  
-    $bookingRepo = new BookingRepository();
+      
+        $bookingRepository = new BookingRepository();
+        $result = $bookingRepository->insertBooking($booking);
 
-    $bookingId = $bookingRepo->createBooking($booking);
-
-    if ($bookingId) {
-        echo "Booking Successful! Booking ID: " . $bookingId;
-        header("Location: Home.php"); 
+        if ($result) {
+            header("Location: Home.php");
+            exit();
+        } else {
+            echo "<script>alert('Error processing booking! Try again.'); window.history.back();</script>";
+            exit();
+        }
     } else {
-        echo "Error: Could not complete the booking.";
+        echo "<script>alert('Invalid form submission!'); window.history.back();</script>";
+        exit();
     }
+} else {
+    echo "<script>alert('Invalid request!'); window.history.back();</script>";
+    exit();
 }
 ?>

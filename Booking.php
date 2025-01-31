@@ -94,6 +94,7 @@ $email = $_SESSION['email'];
  document.addEventListener("DOMContentLoaded",
       function (){
         const btnSubmit=document.getElementById('btn-book');
+        const contactForm = document.querySelector("form");
         const validate=(event) =>{
           event.preventDefault();
           const emailaddress=document.getElementById('email');
@@ -177,8 +178,7 @@ $email = $_SESSION['email'];
     }
 
       alert("Booking completed successfully!");
-          window.location.href = "Home.php"; 
-          document.getElementById('login-form').submit();
+      contactForm.submit();
         };
         btnSubmit.addEventListener("click",validate);
       });

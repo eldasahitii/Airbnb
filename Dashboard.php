@@ -9,12 +9,16 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
 
 include_once 'userRepository.php';
 include_once 'contactRepository.php';
+include_once 'BookingRepository.php';
 
 $userRepository = new UserRepository();
 $users = $userRepository->getAllUsers();
 
 $contactRepository = new ContactRepository();
 $contacts = $contactRepository->getAllMessages();
+
+$bookingRepository = new BookingRepository();
+$bookings = $bookingRepository->getAllBookings();
 
 ?>
 <!DOCTYPE html>
@@ -63,7 +67,7 @@ $contacts = $contactRepository->getAllMessages();
             ";
         }
         ?>
-
+ </table>
 
 <table border="1">
     <tr>
@@ -93,7 +97,53 @@ foreach($contacts as $contact){
     ";
 }
 }
+
 ?>
     </table>
+
+    <h2>Bookings</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>APARTMENT</th>
+        <th>NAME</th>
+        <th>SURNAME</th>
+        <th>EMAIL</th>
+        <th>CHECK IN</th>
+        <th>CHECK OUT</th>
+        <th>ADULTS</th>
+        <th>KIDS</th>
+        <th>SPECIAL REQUEST</th>
+        <th>EDIT</th>
+        <th>DELETE</th> 
+    </tr>
+   
+    <?php 
+
+if (!$bookings || empty($bookings)) {
+    echo "<tr><td colspan='5'>No bookings found.</td></tr>";
+} else {
+foreach($bookings as $booking){
+    echo 
+   "  <tr>
+                <td>{$booking['id']}</td>
+                <td>{$booking['apartment']}</td>
+                <td>{$booking['name']}</td>
+                <td>{$booking['surname']}</td>
+                <td>{$booking['email']}</td>
+                <td>{$booking['check_in']}</td>
+                <td>{$booking['check_out']}</td>
+                <td>{$booking['adults']}</td>
+                <td>{$booking['kids']}</td>
+                <td>{$booking['special_request']}</td>
+                <td><a href='editBooking.php?id={$booking['id']}'>Edit</a></td>
+                <td><a href='deleteBooking.php?id={$booking['id']}'>Delete</a></td>
+            </tr>
+            ";
+    
+}
+}
+
+?>
 </body>
 </html>
