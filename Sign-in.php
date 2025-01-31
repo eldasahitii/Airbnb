@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,15 +68,7 @@
                     event.preventDefault();
                     return false;
                 }
-    //             const phoneRegex = /^\+?[0-9]{10,15}$/; 
-    // if (telephoneInput.value.trim() === "") {
-    //   alert("Please enter your phone number.");
-    //   telephoneInput.focus();
-    //   return false;
-    // } else if (!phoneRegex.test(telephoneInput.value.trim())) {
-    //   alert("Please enter a valid phone number.");
-    //   telephoneInput.focus();
-    //   return false;
+    //            
     // }
                 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
                 if (!emailRegex.test(emailInput.value.trim())){

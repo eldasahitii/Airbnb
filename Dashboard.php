@@ -8,9 +8,14 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
 }
 
 include_once 'userRepository.php';
+include_once 'contactRepository.php';
 
 $userRepository = new UserRepository();
 $users = $userRepository->getAllUsers();
+
+$contactRepository = new ContactRepository();
+$contacts = $contactRepository->getAllMessages();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +63,37 @@ $users = $userRepository->getAllUsers();
             ";
         }
         ?>
+
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>MESSAGE</th>
+        <th>DELETE</th> 
+    </tr>
+    <h2>Contact Messages</h2>
+    <?php 
+
+if (!$contacts || empty($contacts)) {
+    echo "<tr><td colspan='5'>No messages found.</td></tr>";
+} else {
+foreach($contacts as $contact){
+    echo 
+    "
+    <tr>
+        <td>$contact[id]</td> 
+        <td>$contact[name]</td>
+        <td>$contact[email]</td>
+        <td>$contact[message]</td>
+        <td><a href='deleteMessage.php?id=$contact[id]'>Delete</a></td>
+      
+    </tr>
+    ";
+}
+}
+?>
     </table>
 </body>
 </html>
