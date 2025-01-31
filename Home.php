@@ -56,18 +56,18 @@ $email = $_SESSION['email'];
             <div class="services-card">
                 <h3>Location Discovery Tours</h3>
                 <p>Embark on guided location discovery tours led by local experts to uncover hidden gems and unique experiences in the vibrant neighbourhood, where our apartments are situated.</p>
-              <img src="/images/img2.jpg" alt="">
+              <img src="./images/img2.jpg" alt="">
             </div>
             <div class="services-card">
                 <h3>Travel Concierge Services</h3>
                 <p>Access our comprehensive travel concierge services, providing local insights, activity recommendations, and seamless travel arrangements to enhance your stay.</p>
-              <img src="/images/img3.jpg" alt="">
+              <img src="./images/img3.jpg" alt="">
             </div>
 
             <div class="services-card">
                 <h3>Apartment Rental Assistance</h3>
                 <p>Utilize our expert apartment rental assistance to find the perfect accommodation tailored to your preferences, whether it’s for a weekend getaway or extended stay.</p>
-              <img src="/images/img4.jpg" alt="">
+              <img src="./images/img4.jpg" alt="">
             </div>
         </div>
     </section>

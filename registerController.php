@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $surname = trim($_POST['surname']);    
         $email = trim($_POST['email']);       
         $password = trim($_POST['password']);  
+        $role = isset($_POST['role']) ? $_POST['role'] : 'user'; 
 
       
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -33,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
         
-        $user = new User($id, $name, $surname, $email, $hashedPassword);
+        $user = new User($id, $name, $surname, $email, $hashedPassword, $role);
 
     
         $userRepository = new UserRepository();

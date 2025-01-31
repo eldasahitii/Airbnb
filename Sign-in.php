@@ -26,6 +26,12 @@
                 <label for="pass">Password:</label><br>
                 <input type="password" id="password" name="password" minlength="4" required>
                
+                <label for="role">Role:</label><br>
+                <select name="role" id="role">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select><br><br>
+
                 <button type="submit" id="submit" name="submit">Submit</button>
 
 

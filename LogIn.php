@@ -9,6 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    
     $email = $_POST['email'];
     $password = $_POST['password'];
+
     $userRepository = new UserRepository();
     $userData = $userRepository->getUserByEmail($email);
 
@@ -18,14 +19,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (password_verify($password, $hashedPassword)) {
           $_SESSION['user_id'] = $userData['id'];
           $_SESSION['email'] = $userData['email'];
-          header("Location: Home.php"); 
-          exit;
-      } else {
-          echo "<script>alert('Invalid email or password!');</script>";
-      }
-  } else {
-      echo "<script>alert('User not found!');</script>";
-  }
+          $_SESSION['role'] = $userData['role'];
+        
+          if ($userData['role'] == 'admin') {
+            header("Location: Dashboard.php");
+        } else {
+            header("Location: Home.php");
+        }
+        exit;
+    } else {
+        echo "<script>alert('Invalid email or password!');</script>";
+    }
+} else {
+    echo "<script>alert('Email not found!');</script>";
+}
 }
 ?>
 

@@ -22,13 +22,14 @@ class UserRepository {
         $surname = $user->getSurname();
         $email = $user->getEmail();
         $password = $user->getPassword();
+        $role=$user->getRole();
 
      
-        $sql = "INSERT INTO user (id, name, surname, email, password) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO user (id, name, surname, email, password, role) VALUES (?, ?, ?, ?, ?, ?)";
 
       
         $statement = $conn->prepare($sql);
-        $statement->execute([$id, $name, $surname, $email, $password]);
+        $statement->execute([$id, $name, $surname, $email, $password, $role]);
 
   
         echo "<script>alert('User has been inserted successfully!');</script>";
@@ -40,9 +41,9 @@ class UserRepository {
 
         $sql = "SELECT * FROM user";
         $statement = $conn->query($sql);
-        $users = $statement->fetchAll();
+        $user = $statement->fetchAll();
 
-        return $users;
+        return $user;
     }
 
    
@@ -52,9 +53,9 @@ class UserRepository {
         $sql = "SELECT * FROM user WHERE id = ?";
         $statement = $conn->prepare($sql);
         $statement->execute([$id]);
-        $user = $statement->fetch();
+        $users = $statement->fetch();
 
-        return $user;
+        return $users;
     }
 
    
