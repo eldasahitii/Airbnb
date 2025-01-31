@@ -1,12 +1,42 @@
 <?php
 session_start();
+include_once 'contactController.php';
+
+
 
 if (!isset($_SESSION['email'])) {
     header("Location: LogIn.php"); 
     exit;
 }
 $email = $_SESSION['email'];
+
+$contactController = new ContactController();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $_token = $_POST["_token"];
+
+    if (isset($_SESSION["_token"]) && $_SESSION["_token"] == $_token) {
+        unset($_SESSION["_token"]);
+
+        $name = htmlspecialchars($_POST["name"]);
+        $email = htmlspecialchars($_POST["email"]);
+        $message = htmlspecialchars($_POST["message"]);
+
+        if ($contactController->handleContactForm($name, $email, $message)) {
+            echo "<p>Your message has been received. Thank you.</p>";
+        } else {
+            echo "<p>Something went wrong.</p>";
+        }
+    }
+}
+
+$_SESSION["_token"] = md5(time());
+
 ?>
+
+
+
+
 
 <div style="background-color:#2c3e50; color: white; padding: 18px 20px; text-align: center; font-size: 16px; font-weight: normal; border-radius: 5px; position: absolute; top: 0; right: 0; z-index: 9999;">
     Welcome, <?php echo $email; ?>!
@@ -62,12 +92,12 @@ $email = $_SESSION['email'];
                 </div>
 
                 <div class="contact-right">
-                    <form>
+                    <form method="POST" action="ContactUs.php">
                         <h2>Send Message</h2>
-                        <input type="text"   id="fname" placeholder="Full Name" required>
-                        <input type="email" id="email" placeholder="Email" required>
-                        <textarea id="message" placeholder="Type Your Message..." required></textarea>
-                        <button type="submit" id="send-btn">Send</button>
+                        <input type="text"   id="fname" name="name" placeholder="Full Name" required>
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                        <textarea id="message" name="message" placeholder="Type Your Message..." required></textarea>
+                        <button type="submit" id="send-btn">Send Message</button>
                         
                     </form>
                 </div>
