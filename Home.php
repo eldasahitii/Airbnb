@@ -8,7 +8,7 @@ if (!isset($_SESSION['email'])) {
 $email = $_SESSION['email'];
 ?>
 
-<div style="background-color:#2c3e50; color: white; padding: 20px 20px; text-align: center; font-size: 16px; font-weight: normal; border-radius: 5px; position: absolute; top: 0; right: 0; z-index: 9999;">
+<div style="background-color:#2c3e50; color: white; padding: 18PX 20px; text-align: center; font-size: 16px; font-weight: normal; border-radius: 5px; position: absolute; top: 0; right: 0; z-index: 9999;">
     Welcome, <?php echo $email; ?>!
     <a href="Logout.php" style="text-decoration: none; color: white; background-color: #f44336; padding: 5px 10px; border-radius: 5px; font-size: 14px; margin-left: 15px;">Logout</a>
 </div>

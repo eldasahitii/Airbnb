@@ -36,8 +36,8 @@ $email = $_SESSION['email'];
     <h1 id="h1-b">Apartment Booking</h1>
     
     <div class="booking-container">
- <form id="book">
-    <select id="apartment" required>
+ <form id="book" action="bookingController.php" method="POST">
+    <select id="apartment" name="apartment" required>
         <option value="" disabled selected>Choose your Apartment  </option>
         <option value="1">Salish Lodge and Spa - Washington, United States</option>
         <option value="2">The Dewberry Charliston - South Carolina, United States</option>
@@ -53,20 +53,20 @@ $email = $_SESSION['email'];
 
 
 
-    <input type="text" id="fname" placeholder="First Name" required>
+    <input type="text" id="name" name="name" placeholder="First Name" required>
 
-    <input type="text" id="lname" placeholder="Last Name" required>
+    <input type="text" id="surname" name="surname" placeholder="Last Name" required>
 
-    <input type="tel" id="phone" placeholder="Phone Number">
+    <input type="tel" id="phone" name="phone" placeholder="Phone Number">
 
-    <input type="email" id="email" placeholder="Email">
+    <input type="email" id="email"  name="email" placeholder="Email">
 
-    <input type="date" id="checkin" placeholder="Check In" >
+    <input type="date" id="checkin" name="checkin" placeholder="Check In" >
 
-    <input type="date" id="checkout" placeholder="Check Out" >
+    <input type="date" id="checkout" name="checkout" placeholder="Check Out" >
 
 
-    <select id="adults" required>
+    <select id="adults" name="adults" required>
         <option value="" disabled selected>Adults</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -75,7 +75,7 @@ $email = $_SESSION['email'];
         <option value="5">5</option>
     </select>
 
-    <select id="kids" required>
+    <select id="kids" name="kids" required>
         <option value="" disabled selected>Kids</option>
         <option value="0">0</option>
         <option value="1">1</option>
@@ -85,7 +85,7 @@ $email = $_SESSION['email'];
        
     </select>
 <div class="request">
-    <input type="text" placeholder="Special Request (Optional)">
+    <input type="text" name="special_request" placeholder="Special Request (Optional)">
 </div>
    <button type="submit" id="btn-book">Book Now</button>
  </form>
@@ -98,8 +98,8 @@ $email = $_SESSION['email'];
           event.preventDefault();
           const emailaddress=document.getElementById('email');
           const apartment=document.getElementById('apartment');
-          const firstName=document.getElementById('fname');
-          const lastName=document.getElementById('lname');
+          const firstName=document.getElementById('name');
+          const lastName=document.getElementById('surname');
           const phone=document.getElementById('phone');
           const checkIn=document.getElementById('checkin');
           const checkOut=document.getElementById('checkout');
@@ -177,7 +177,7 @@ $email = $_SESSION['email'];
     }
 
       alert("Booking completed successfully!");
-          window.location.href = "home.html"; 
+          window.location.href = "Home.php"; 
           document.getElementById('login-form').submit();
         };
         btnSubmit.addEventListener("click",validate);
