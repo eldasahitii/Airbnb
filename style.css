@@ -438,10 +438,9 @@ width: 100%;
     justify-content: space-between; 
     width: 100%;
     margin: 0 auto;
-    flex-wrap: wrap;
     height: auto;
     padding: 30px;
-    background: #222; 
+    background: #222;  
 }
 .contact-left,
 .contact-right{
@@ -453,6 +452,7 @@ width: 100%;
     background: url('./images/contactusbackground1.jpg') no-repeat center;
     background-size: cover;
     color: #fff;
+    height: 100vh;
 }
 .contact-left h1{
     font-size: 36px;
@@ -476,10 +476,13 @@ width: 100%;
     color: #00bfff;
 }
 .contact-right{
-    background-color: #333;
     color: #fff;
     max-width: 400px;
     margin-left: 30px;
+    position: absolute; 
+    top: 25%; 
+    right: 8%; 
+    width: 300px; 
 }
 .contact-right form {
     display: flex;
@@ -491,7 +494,6 @@ width: 100%;
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    background-color: #444;
     color: #fff;
     font-size: 16px;
     border-radius: 5px;
@@ -529,6 +531,9 @@ width: 100%;
         width: 100%;
         padding: 20px;
         margin-top: 20px;
+        position: relative;
+        top: auto;
+        right: auto;
     }
 }
 
