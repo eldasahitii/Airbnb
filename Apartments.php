@@ -159,18 +159,20 @@ $email = $_SESSION['email'];
     </style>
 </head>
 <body>
-    <header>
+<header>
         <div class="navbar">
             <div class="logo">
-            <img src="./images/image.png" alt="logo">
+                <img src="./images/image.png" alt="logo">
         </div>
-            <nav>
-                <a href="Home.php">Home</a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
                 <a href="AboutUs.php">About Us</a>
-                <a href="#Apartment">Apartments</a>
+                <a href="Apartments.php">Apartments</a>
                 <a href="ContactUs.php">Contact Us</a>
-                <a href="Booking.php">Booking</a></nav>
-            <button class="login-btn"><a href="LogIn.html">Log In</a></button></div>
+                <a href="Booking.php">Booking</a>
+            </nav>
+            <a href="Logout.php" style="text-decoration: none; color: white; background-color: #f44336; padding: 5px 10px; border-radius: 5px; font-size: 14px; margin-left: 15px;">Logout</a>
+        </div>
     </header>
      <div class="cards">
         <div class="card" onclick="showGallery('washington')">
@@ -275,23 +277,22 @@ $email = $_SESSION['email'];
         </div>
     </div>
 </div>
-<footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;margin-top: 20px>
+<footer>
     <div>
-   
         <p>&copy; 2024 Serenity. All Rights Reserved.</p><br>
         <p>Contact us: 
-            <a href="tel:+1234567890" style="color: white; text-decoration: none;">+1 234 567 890</a> | 
+            <a href="#" style="color: white; text-decoration: none;">+1 234 567 890</a> | 
             <a href="mailto:serenityinfo@gmail.com" style="color: white; text-decoration: none;">serenityinfo@gmail.com</a>
         </p><br>
         <p>Follow us on:</p><br>
-        <a href="https://www.facebook.com/yourpage" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
-            <i class="fab fa-facebook-f" style="font-size: 24px;"></i> Facebook
+        <a href="https://www.facebook.com/yourpage" target="_blank"> 
+            <i class="fab fa-facebook-f"></i> Facebook
         </a>
-        <a href="https://twitter.com/yourprofile" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
-            <i class="fab fa-twitter" style="font-size: 24px;"></i> Twitter
+        <a href="https://twitter.com/yourprofile" target="_blank" >
+            <i class="fab fa-twitter"></i> Twitter
         </a>
-        <a href="https://www.instagram.com/yourprofile" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
-            <i class="fab fa-instagram" style="font-size: 24px;"></i> Instagram
+        <a href="https://www.instagram.com/yourprofile" target="_blank" >
+            <i class="fab fa-instagram" ></i> Instagram
         </a><br>
         <p>
             <a href="privacy-policy.php" style="color: white; text-decoration: none;">Privacy Policy</a> |
@@ -299,7 +300,6 @@ $email = $_SESSION['email'];
         </p><br>
     </div>
 </footer>
-
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
    <script>

@@ -8,9 +8,8 @@ if (!isset($_SESSION['email'])) {
 $email = $_SESSION['email'];
 ?>
 
-<div style="background-color:#2c3e50; color: white; padding: 18PX 20px; text-align: center; font-size: 16px; font-weight: normal; border-radius: 5px; position: absolute; top: 0; right: 0; z-index: 9999;">
-    Welcome, <?php echo $email; ?>!
-    <a href="Logout.php" style="text-decoration: none; color: white; background-color: #f44336; padding: 5px 10px; border-radius: 5px; font-size: 14px; margin-left: 15px;">Logout</a>
+<div id="welcomeMessage" style="background-color:#2c3e50; color: white; padding: 18px 20px; text-align: center; font-size: 16px; font-weight: normal; border-radius: 5px; position: absolute; margin-left:65px; padding-top:35px;">
+    Welcome, <?php echo $email; ?>
 </div>
 
 <!DOCTYPE html>
@@ -28,14 +27,15 @@ $email = $_SESSION['email'];
             <div class="logo">
                 <img src="./images/image.png" alt="logo">
         </div>
-            <nav>
+            <nav class="nav-links">
                 <a href="#home">Home</a>
                 <a href="AboutUs.php">About Us</a>
                 <a href="Apartments.php">Apartments</a>
                 <a href="ContactUs.php">Contact Us</a>
                 <a href="Booking.php">Booking</a>
             </nav>
-            <button class="login-btn"><a href="LogIn.php">Log In</a></button>
+            <a href="Logout.php" style="text-decoration: none; color: white; background-color: #f44336; padding: 5px 10px; border-radius: 5px; font-size: 14px; margin-left: 15px;">Logout</a>
+        
         </div>
     </header>
 
@@ -61,7 +61,7 @@ $email = $_SESSION['email'];
             </div>
             <div class="services-card">
                 <h3>Travel Concierge Services</h3>
-                <p>Access our comprehensive travel concierge services, providing local insights, activity recommendations, and seamless travel arrangements to enhance your stay.</p>
+                <p>Access our comprehensive travel concierge services, providing local insights, activity recommendations, and seamless travel arrangements to enhance your stay.</p><br>
               <img src="./images/img3.jpg" alt="">
             </div>
 
@@ -74,66 +74,56 @@ $email = $_SESSION['email'];
     </section>
     
     <script>
-        var i=0;
-        var imgs=[
-            "images/imgs2.jpg",
-            "images/imgs3.jpg",
-            "images/imgs4.jpg",
-            "images/imgs5.jpg",
-            "images/imgs6.jpg"
-        ];
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function () {
+        document.getElementById("welcomeMessage").style.display = "none";
+    }, 5000);
+    let i = 0;
+    const images = [
+        "images/imgs2.jpg",
+        "images/imgs3.jpg",
+        "images/imgs4.jpg",
+        "images/imgs5.jpg",
+        "images/imgs6.jpg"
+    ];
+    
+    function slideImg() {
+        document.getElementById("slideshow").src = images[i];
+        i = (i + 1) % images.length;
+    }
 
-        function slideImg(){
-
-            document.getElementById('slideshow').src=imgs[i];
-            if(i<imgs.length - 1){
-                i++;
-            }else{
-                i=0;
-            }
-        }
-       document.body.addEventListener('load',slideImg());
-        
+    document.getElementById("nextSlide").addEventListener("click", slideImg);
+    setInterval(slideImg, 3000);
+});
     </script>
-
-    <div id="slide-content">
-     
+    <div class="slideshow">
         <img name="slide" id="slideshow" src="images/imgs1.jpg" />
-        <button onclick="slideImg()">Next</button>
-        
+        <button onclick="slideImg()" id="nextSlide">Next</button>
         </div>
-
-
         
-        <footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;margin-top: 20px>
+        <footer>
     <div>
-   
         <p>&copy; 2024 Serenity. All Rights Reserved.</p><br>
         <p>Contact us: 
-            <a href="tel:+1234567890" style="color: white; text-decoration: none;">+1 234 567 890</a> | 
+            <a href="#" style="color: white; text-decoration: none;">+1 234 567 890</a> | 
             <a href="mailto:serenityinfo@gmail.com" style="color: white; text-decoration: none;">serenityinfo@gmail.com</a>
         </p><br>
-
-    
         <p>Follow us on:</p><br>
-        <a href="https://www.facebook.com/yourpage" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
-            <i class="fab fa-facebook-f" style="font-size: 24px;"></i> Facebook
+        <a href="https://www.facebook.com/yourpage" target="_blank"> 
+            <i class="fab fa-facebook-f"></i> Facebook
         </a>
-        <a href="https://twitter.com/yourprofile" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
-            <i class="fab fa-twitter" style="font-size: 24px;"></i> Twitter
+        <a href="https://twitter.com/yourprofile" target="_blank" >
+            <i class="fab fa-twitter"></i> Twitter
         </a>
-        <a href="https://www.instagram.com/yourprofile" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
-            <i class="fab fa-instagram" style="font-size: 24px;"></i> Instagram
+        <a href="https://www.instagram.com/yourprofile" target="_blank" >
+            <i class="fab fa-instagram" ></i> Instagram
         </a><br>
-
-
         <p>
             <a href="privacy-policy.php" style="color: white; text-decoration: none;">Privacy Policy</a> |
             <a href="terms-of-service.php" style="color: white; text-decoration: none;">Terms of Service</a>
         </p><br>
     </div>
 </footer>
-
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
