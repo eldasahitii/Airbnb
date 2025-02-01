@@ -156,6 +156,107 @@ $email = $_SESSION['email'];
 .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
+@media (max-width: 1200px) {
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .card-content h3 {
+        font-size: 18px;
+    }
+
+    .card-content p {
+        font-size: 16px;
+    }
+
+    .card-content .price {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 992px) {
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .gallery img {
+        width: 150px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        justify-content: space-between;
+    }
+
+    .gallery img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-content h3 {
+        font-size: 20px;
+    }
+
+    .card-content p {
+        font-size: 18px;
+    }
+
+    .card-content .price {
+        font-size: 20px;
+    }
+
+    .card .book-btn {
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .card img {
+        height: 200px;
+    }
+
+    .card-content h3 {
+        font-size: 16px;
+    }
+
+    .card-content p {
+        font-size: 14px;
+    }
+
+    .card-content .price {
+        font-size: 16px;
+    }
+
+    .card .book-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
     </style>
 </head>
 <body>
