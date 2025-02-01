@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
      
-        $booking = new Booking(null, $apartment, $name, $surname, $phone, $email, $check_in, $check_out, $adults, $kids, $special_request);
+        
 
       
         $bookingRepository = new BookingRepository();
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
 
-
+        $booking = new Booking(null, $apartment, $name, $surname, $phone, $email, $check_in, $check_out, $adults, $kids, $special_request);
         $result = $bookingRepository->insertBooking($booking);
 
         if ($result) {

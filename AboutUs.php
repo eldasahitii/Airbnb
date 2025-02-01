@@ -6,6 +6,13 @@ if (!isset($_SESSION['email'])) {
     exit;
 }
 $email = $_SESSION['email'];
+
+include_once 'Database.php';
+$sql = "SELECT * FROM paragraphs";
+$conn = Database::getInstance()->getConnection();
+$result = $conn->prepare($sql);
+$result->execute();  
+
 ?>
 
 <div style="background-color:#2c3e50; color: white; padding: 18px 20px; text-align: center; font-size: 16px; font-weight: normal; border-radius: 5px; position: absolute; top: 0; right: 0; z-index: 9999;">
@@ -40,13 +47,23 @@ $email = $_SESSION['email'];
         </div>
     </header>
 
+ 
+
     <section class="aboutus">
         <div class="about-us-content">
             <h1>ABOUT US</h1>
             <p>Whether you're a solo adventurer, couple, or family, our collection of curated spaces promises an unforgettable travel experience. Immerse yourself in the essence of every destination. Uncover the perfect union of comfort, convenience, and culture with our handpicked accommodations. Find your ideal home-away-from-home and unwrap the perfect travel experience with us.</p>
+            <?php
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    echo '<section class="start">';
+    echo '<h1>' . $row['title'] . '</h1>';
+    echo '<p>' . $row['content'] . '</p>';
+    echo '</section>';
+}
+?>
         </div>
     </section>
-
+    
     <div class="results-wrapper">
         <div class="results-container">
             <div class="results-container2">
@@ -114,11 +131,10 @@ $email = $_SESSION['email'];
          </div>
         
     </div>
-</section>
+</section> 
 
 
-
-<footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;margin-top: 20px>
+ <footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;margin-top: 20px>
     <div>
    
         <p>&copy; 2024 Serenity. All Rights Reserved.</p><br>
@@ -145,7 +161,7 @@ $email = $_SESSION['email'];
             <a href="terms-of-service.php" style="color: white; text-decoration: none;">Terms of Service</a>
         </p><br>
     </div>
-</footer>
+</footer> 
 
 
 <script src="https://kit.fontawesome.com/a076d05399.js"></script>

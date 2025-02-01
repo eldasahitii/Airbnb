@@ -20,6 +20,13 @@ $contacts = $contactRepository->getAllMessages();
 $bookingRepository = new BookingRepository();
 $bookings = $bookingRepository->getAllBookings();
 
+$conn = Database::getInstance()->getConnection();
+$query = "SELECT * FROM paragraphs";
+$stmt = $conn->prepare($query);
+$stmt->execute();
+$paragraphs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -145,5 +152,61 @@ foreach($bookings as $booking){
 }
 
 ?>
+
+</table>
+<?php
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $newContent = $_POST['content'];
+    $pageController->updatePageContent('aboutus', $newContent);
+    header("Location: dashboard.php");
+    exit;
+}
+
+
+?>
+
+<h2>Manage About Us</h2>
+<h5>Add Paragraphs</h5>
+
+<form action="add_paragraph.php" method="POST" >
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required ><br><br>
+
+            <label for="content" style="font-size: 16px;">Text:</label>
+            <textarea id="content" name="content" rows="4" required></textarea><br>
+
+            <button type="submit">
+                Add Paragraph
+            </button><br>
+        </form>
+<br>
+        <table border="1">
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>CONTENT</th>
+        <th>EDITED BY</th>
+        <th>ACTION</th>
+    </tr>
+    <?php foreach ($paragraphs as $para) : ?>
+        <tr>
+            <td><?php echo $para['id']; ?></td>
+            <td><?php echo htmlspecialchars($para['title']); ?></td>
+            <td><?php echo htmlspecialchars($para['content']); ?></td>
+            <td><?php echo htmlspecialchars($para['edited_by']); ?></td> 
+            <td>
+                <a href="delete_paragraph.php?id=<?php echo $para['id']; ?>" 
+                   onclick="return confirm('Are you sure you want to delete this paragraph?');">
+                   Delete
+                </a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+
+
+
 </body>
 </html>

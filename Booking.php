@@ -180,9 +180,37 @@ $email = $_SESSION['email'];
       return false;
     }
      
-      alert("Booking completed successfully!");
-      contactForm.submit();
+    const checkAvailability = () => {
+            const data = {
+                apartment_id: apartment.value,
+                check_in: checkIn.value,
+                check_out: checkOut.value
+            };
+
+            
+            fetch('check_availability.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.available) {
+                    alert("Booking completed successfully!");
+                    contactForm.submit(); 
+                } else {
+                    alert('The apartment is unavailable for the selected dates. Please choose different dates.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         };
+
+        checkAvailability();
+    };
         btnSubmit.addEventListener("click",validate);
       });
 
