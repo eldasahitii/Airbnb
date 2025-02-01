@@ -33,6 +33,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       
         $bookingRepository = new BookingRepository();
+           $isAvailable = $bookingRepository->isApartmentAvailable($apartment, $check_in, $check_out);
+
+        if (!$isAvailable) {
+            echo "<script>alert('The apartment is unavailable for the selected dates. Please choose different dates.'); window.history.back();</script>";
+            exit();
+        }
+
+
         $result = $bookingRepository->insertBooking($booking);
 
         if ($result) {

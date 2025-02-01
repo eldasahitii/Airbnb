@@ -1,21 +1,18 @@
 <?php
-include_once 'database.php';
-include_once 'apartmentController.php';
-
-$db = (new Database())->getConnection();
-$apartmentController = new ApartmentController($db);
-$apartments = $apartmentController->getApartments();
+session_start();
+$email = $_SESSION['email'];
 ?>
-
-
+<div style="background-color:#2c3e50; color: white; padding: 18px 20px; text-align: center; font-size: 16px; font-weight: normal; border-radius: 5px; position: absolute; top: 0; right: 0; z-index: 9999;">
+  Welcome, <?php echo $email; ?>!
+  <a href="Logout.php" style="text-decoration: none; color: white; background-color: #f44336; padding: 5px 10px; border-radius: 5px; font-size: 14px; margin-left: 15px;">Logout</a>
+</div>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8" />
     <title>Apartments</title>
     <link rel="stylesheet" href="style.css">
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         .cards {
             display: grid;
@@ -100,7 +97,6 @@ $apartments = $apartmentController->getApartments();
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
 }
-
 .modal-content {
     position: relative;
     margin: auto;
@@ -111,7 +107,6 @@ $apartments = $apartmentController->getApartments();
     border-radius: 10px;
     overflow: hidden;
 }
-
 .close {
     position: absolute;
     top: 10px;
@@ -121,19 +116,15 @@ $apartments = $apartmentController->getApartments();
     font-weight: bold;
     cursor: pointer;
 }
-
 .close:hover {
     color: #f1c40f;
 }
-
-
 #slider {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 #slider img {
     width: 100%;
     height: auto;
@@ -141,7 +132,6 @@ $apartments = $apartmentController->getApartments();
     object-fit: cover;
     border-radius: 10px;
 }
-
 .prev,
 .next {
     position: absolute;
@@ -156,15 +146,12 @@ $apartments = $apartmentController->getApartments();
     cursor: pointer;
     z-index: 10;
 }
-
 .prev {
     left: 10px;
 }
-
 .next {
     right: 10px;
 }
-
 .prev:hover,
 .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
@@ -182,23 +169,17 @@ $apartments = $apartmentController->getApartments();
                 <a href="AboutUs.php">About Us</a>
                 <a href="#Apartment">Apartments</a>
                 <a href="ContactUs.php">Contact Us</a>
-                <a href="Booking.php">Booking</a>
-            </nav>
-            <button class="login-btn"><a href="LogIn.html">Log In</a></button>
-        </div>
+                <a href="Booking.php">Booking</a></nav>
+            <button class="login-btn"><a href="LogIn.html">Log In</a></button></div>
     </header>
-
-
-
-
-    <div class="cards">
+     <div class="cards">
         <div class="card" onclick="showGallery('washington')">
             <img src="images/washington1.jpeg" alt="Washington, United States">
             <div class="card-content">
                 <h3>Washington, United States</h3>
                 <p>Salish Lodge and Spa</p>
                 <p class="price"> $400 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
         <div class="card" onclick="showGallery('southcarolina')">
@@ -207,8 +188,7 @@ $apartments = $apartmentController->getApartments();
                 <h3>South Carolina, United States</h3>
                 <p>The Dewberry Charliston</p>
                 <p class="price"> $360 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
-
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
         <div class="card" onclick="showGallery('oregon')">
@@ -217,7 +197,7 @@ $apartments = $apartmentController->getApartments();
                 <h3>Oregon, United States</h3>
                 <p>The Alison Inn and Spa</p>
                 <p class="price"> $330 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
         <div class="card" onclick="showGallery('newyork')">
@@ -226,7 +206,7 @@ $apartments = $apartmentController->getApartments();
                 <h3>New York, United States</h3>
                 <p>The Standard High Line</p>
                 <p class="price"> $439 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
         <div class="card" onclick="showGallery('laconner')">
@@ -235,7 +215,7 @@ $apartments = $apartmentController->getApartments();
                 <h3>La conner, Washington, United States</h3>
                 <p>The Wild Iris Inn</p>
                 <p class="price"> $270 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
         <div class="card" onclick="showGallery('gualala')">
@@ -244,7 +224,7 @@ $apartments = $apartmentController->getApartments();
                 <h3>Gualala, California, United States</h3>
                 <p>Home in Gualala,California</p>
                 <p class="price"> $780 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
         <div class="card" onclick="showGallery('cancun')">
@@ -253,7 +233,7 @@ $apartments = $apartmentController->getApartments();
                 <h3>Cancun, United States</h3>
                 <p>Dream Sounds Cancun Resort and Spa</p>
                 <p class="price"> $240 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
         <div class="card" onclick="showGallery('california')">
@@ -262,7 +242,7 @@ $apartments = $apartmentController->getApartments();
                 <h3>California, United States</h3>
                 <p>The Saguro Palm Springs</p>
                 <p class="price"> $220 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
         <div class="card" onclick="showGallery('palmbeach')">
@@ -271,7 +251,7 @@ $apartments = $apartmentController->getApartments();
                 <h3>Palm Beach Miami, United States</h3>
                 <p>Blue diamond & Gold studio</p>
                 <p class="price"> $259 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
         <div class="card" onclick="showGallery('islandpines')">
@@ -280,12 +260,11 @@ $apartments = $apartmentController->getApartments();
                 <h3>Island Pines NYC, United States</h3>
                 <p>The legendary pyramid house</p>
                 <p class="price"> $1140 / night</p>
-                <a href="#booking" class="book-btn">Book Here</a>
+                <a href="Booking.php" class="book-btn">Book Here</a>
             </div>
         </div>
     </div>
     <div id="dynamicGallery" class="gallery"></div>
-
 <div id="imageModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -296,44 +275,34 @@ $apartments = $apartmentController->getApartments();
         </div>
     </div>
 </div>
-
-    
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h3>Contact Us</h3>
-                
-                <p>Email: info-serenity@gmail.com</p>
-                <p>Phone: +383 45 621 166</p>
-            </div>
-            <div class="footer-content">
-                <h3>Quick Links</h3>
-                <ul class="list">
-                    <li><a href="Home.html">Home</a></li>
-                    <li><a href="AboutUs.html">About</a></li>
-                    <li><a href="Apartments.html">Services</a></li>
-                    <li><a href="ContactUs.html">Contact</a></li>
-                    <li><a href="Booking.html">Booking</a></li>
-                </ul>
-            </div>
-            <div class="footer-content">
-                <h3>Follow Us</h3>
-                <ul class="social-icons">
-                <li><a href="https://www.facebook.com/"></a><img src="/images/facebook.png" alt="Facebook Icon" width="60" height="60"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://x.com/"></a><img src="/images/twitter.png" alt="Twitter Icon" width="60" height="60"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/"></a><img src="/images/instagram.png" alt="Instagram Icon" width="60" height="60"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.linkedin.com/"></a><img src="/images/linkedin.png" alt="LinkedIn Icon" width="60" height="60"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="bottom-bar">
-            <p>&copy;2024 Serenity . All rights reserved</p>
-        </div>
-            
-    </footer> 
+<footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;margin-top: 20px>
+    <div>
    
-    <script>
+        <p>&copy; 2024 Serenity. All Rights Reserved.</p><br>
+        <p>Contact us: 
+            <a href="tel:+1234567890" style="color: white; text-decoration: none;">+1 234 567 890</a> | 
+            <a href="mailto:serenityinfo@gmail.com" style="color: white; text-decoration: none;">serenityinfo@gmail.com</a>
+        </p><br>
+        <p>Follow us on:</p><br>
+        <a href="https://www.facebook.com/yourpage" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <i class="fab fa-facebook-f" style="font-size: 24px;"></i> Facebook
+        </a>
+        <a href="https://twitter.com/yourprofile" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <i class="fab fa-twitter" style="font-size: 24px;"></i> Twitter
+        </a>
+        <a href="https://www.instagram.com/yourprofile" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <i class="fab fa-instagram" style="font-size: 24px;"></i> Instagram
+        </a><br>
+        <p>
+            <a href="privacy-policy.php" style="color: white; text-decoration: none;">Privacy Policy</a> |
+            <a href="terms-of-service.php" style="color: white; text-decoration: none;">Terms of Service</a>
+        </p><br>
+    </div>
+</footer>
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+   <script>
         const galleries = {
             washington: [
                 'images/washington2.avif',
@@ -448,47 +417,36 @@ $apartments = $apartmentController->getApartments();
             ]
         };
         
-          let currentSlideIndex = 0;
+ let currentSlideIndex = 0;
 let currentImages = [];
-
 function showGallery(hotelId) {
     currentImages = galleries[hotelId];
     if (currentImages && currentImages.length > 0) {
         currentSlideIndex = 0;
         openModal();
-        updateSlide();
-    }
-}
-
+        updateSlide();}}
 function openModal() {
     const modal = document.getElementById('imageModal');
     modal.style.display = 'block';
 }
-
 function closeModal() {
     const modal = document.getElementById('imageModal');
     modal.style.display = 'none';
 }
-
 function updateSlide() {
     const sliderImage = document.getElementById('sliderImage');
     sliderImage.src = currentImages[currentSlideIndex];
 }
-
 function nextSlide() {
     if (currentImages.length > 0) {
         currentSlideIndex = (currentSlideIndex + 1) % currentImages.length;
-        updateSlide();
-    }
-}
-
-function prevSlide() {
+        updateSlide();}}
+        function prevSlide() {
     if (currentImages.length > 0) {
         currentSlideIndex = (currentSlideIndex - 1 + currentImages.length) % currentImages.length;
         updateSlide();
     }
 }
-
 
 window.onclick = function (event) {
     const modal = document.getElementById('imageModal');

@@ -22,6 +22,7 @@ $email = $_SESSION['email'];
 
     <title>Contact Us</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
@@ -53,11 +54,11 @@ $email = $_SESSION['email'];
                 <div class="contact-info">
                     <div class="info-item">
                         <span class="icon"></span>
-                        <p><strong>Phone:</strong>+383-45-621-166</p>
+                        <p><strong>Phone:</strong>+1 234 567 890</p>
                     </div>
                     <div class="info-item">
                         <span class="icon"></span>
-                        <p><strong>Email:</strong>info-serenity@gmail.com</p>
+                        <p><strong>Email:</strong>serenityinfo@gmail.com</p>
                     </div>
                    
                 </div>
@@ -162,39 +163,37 @@ sendBtn.addEventListener("click",validate);
         <button onclick="slideImg()">Next</button>
     </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <h3>Contact Us</h3>
-                
-                <p>Email: info-serenity@gmail.com</p>
-                <p>Phone: +383 45 621 166</p>
-            </div>
-            <div class="footer-content">
-                <h3>Quick Links</h3>
-                <ul class="list">
-                    <li><a href="Home.html">Home</a></li>
-                    <li><a href="AboutUs.html">About</a></li>
-                    <li><a href="Apartments.html">Services</a></li>
-                    <li><a href="ContactUs.html">Contact</a></li>
-                    <li><a href="Booking.html">Booking</a></li>
-                </ul>
-            </div>
-            <div class="footer-content">
-                <h3>Follow Us</h3>
-                <ul class="social-icons">
-                <li><a href="https://www.facebook.com/"></a><img src="/images/facebook.png" alt="Facebook Icon" width="60" height="60"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://x.com/"></a><img src="/images/twitter.png" alt="Twitter Icon" width="60" height="60"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/"></a><img src="/images/instagram.png" alt="Instagram Icon" width="60" height="60"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.linkedin.com/"></a><img src="/images/linkedin.png" alt="LinkedIn Icon" width="60" height="60"><i class="fab fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="bottom-bar">
-            <p>&copy;2024 Serenity . All rights reserved</p>
-        </div>
-            
-    </footer> 
+    <footer style="background-color: #2c3e50; color: white; padding: 30px 0; text-align: center;margin-top: 20px>
+    <div>
+   
+        <p>&copy; 2024 Serenity. All Rights Reserved.</p><br>
+        <p>Contact us: 
+            <a href="tel:+1234567890" style="color: white; text-decoration: none;">+1 234 567 890</a> | 
+            <a href="mailto:serenityinfo@gmail.com" style="color: white; text-decoration: none;">serenityinfo@gmail.com</a>
+        </p><br>
+
+    
+        <p>Follow us on:</p><br>
+        <a href="https://www.facebook.com/yourpage" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <i class="fab fa-facebook-f" style="font-size: 24px;"></i> Facebook
+        </a>
+        <a href="https://twitter.com/yourprofile" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <i class="fab fa-twitter" style="font-size: 24px;"></i> Twitter
+        </a>
+        <a href="https://www.instagram.com/yourprofile" target="_blank" style="margin: 0 10px; color: white; text-decoration: none;">
+            <i class="fab fa-instagram" style="font-size: 24px;"></i> Instagram
+        </a><br>
+
+
+        <p>
+            <a href="privacy-policy.php" style="color: white; text-decoration: none;">Privacy Policy</a> |
+            <a href="terms-of-service.php" style="color: white; text-decoration: none;">Terms of Service</a>
+        </p><br>
+    </div>
+</footer>
+
+
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
     </body>
 </html>

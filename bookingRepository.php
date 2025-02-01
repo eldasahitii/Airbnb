@@ -92,6 +92,29 @@ public function updateBooking($id, $apartment, $name, $surname, $phone, $email, 
 
     echo "<script>alert('Update was successful');</script>";
 }
+public function isApartmentAvailable($apartment_id, $check_in, $check_out) {
+    $conn = $this->connection;
+
+    
+    $sql = "SELECT * FROM bookings 
+            WHERE apartment = :apartment_id 
+            AND ( (check_in BETWEEN :check_in AND :check_out) 
+                OR (check_out BETWEEN :check_in AND :check_out)
+            )";
+    $stmt = $conn->prepare($sql);
+
+
+    $stmt->bindParam(':apartment_id', $apartment_id);
+    $stmt->bindParam(':check_in', $check_in);
+    $stmt->bindParam(':check_out', $check_out);
+
+    
+    $stmt->execute();
+
+ 
+    return $stmt->rowCount() == 0;
+}
+
 }
 
 ?>
