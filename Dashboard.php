@@ -39,7 +39,7 @@ $paragraphs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<h1>Admin Dashboard</h1>
+<h1>Admin Dashboard</h1> <a href="Home.php" style="text-decoration:none;border-radius:15px;">Go to main page</a>
 <p>Welcome, Admin! Here you can manage users.</p>
     <table border="1">
      
