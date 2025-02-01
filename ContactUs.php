@@ -1,18 +1,3 @@
-<?php
-
-session_start();
-
-if (!isset($_SESSION['email'])) {
-    header("Location: LogIn.php"); 
-    exit;
-}
-$email = $_SESSION['email'];
-
-?>
-<div style="background-color:#2c3e50; color: white; padding: 18px 20px; text-align: center; font-size: 16px; font-weight: normal; border-radius: 5px; position: absolute; top: 0; right: 0; z-index: 9999;">
-    Welcome, <?php echo $email; ?>!
-    <a href="Logout.php" style="text-decoration: none; color: white; background-color: #f44336; padding: 5px 10px; border-radius: 5px; font-size: 14px; margin-left: 15px;">Logout</a>
-</div>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +22,7 @@ $email = $_SESSION['email'];
                 <a href="#contact">Contact Us</a>
                 <a href="Booking.php">Booking</a>
             </nav>
-            <button class="login-btn"><a href="LogIn.html">Log In</a></button>
+            <button class="login-btn"><a href="Logout.php">Log Out</a></button>
         </div>
     </header>
 

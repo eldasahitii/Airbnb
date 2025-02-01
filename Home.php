@@ -44,7 +44,7 @@ $email = $_SESSION['email'];
              <h3>~SERENITY~</h3>
             <h1>Discover Your Next Adventure</h1>
             <p>Unlock the magic of travel with our carefully curated apartments, each offering a unique experience that enhances your journey. Step into a world of comfort and explore like a local in every destination you visit.</p>
-     <button class="learn-more-btn"><a href="AboutUs.html">LEARN MORE</a></button>
+     <button class="learn-more-btn"><a href="AboutUs.php">LEARN MORE</a></button>
         </div>
         <div class="main-image">
             <img src="images/img1.jpg" alt="">
