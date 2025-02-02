@@ -14,7 +14,7 @@
                 <img src="./images/image.png" alt="logo">
         </div>
             <nav class="nav-links">
-                <a href="#home">Home</a>
+                <a href="Home.php">Home</a>
                 <a href="AboutUs.php">About Us</a>
                 <a href="Apartments.php">Apartments</a>
                 <a href="ContactUs.php">Contact Us</a>

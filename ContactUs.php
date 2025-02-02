@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,12 +29,12 @@
     <div class="contact-container">
         <div class="contact-left">
             
-            <h1>Contact Us</h1>
+            <h1>Contact Us</h1><br>
             <p>You will hear from us at the earliest!</p>
             <div class="contact-info">
                 <div class="info-item">
                     <span class="icon"></span>
-                    <p><strong>Address:</strong>Washington Square,New York,NY 10012</p>
+            <p><strong>Address:</strong>Washington Square,New York,NY 10012</p>
                 </div>
                 <div class="contact-info">
                     <div class="info-item">
@@ -48,7 +47,6 @@
                     </div>
                    
                 </div>
-
                 <div class="contact-right">
                     <form method="POST" action="contactController.php">
                     
@@ -57,10 +55,8 @@
                         <input type="email" id="email" name="email" placeholder="Email" required>
                         <textarea id="message" name="message" placeholder="Type Your Message..." required></textarea>
                         <button type="submit" id="send-btn" name="contact_us">Send Message</button>
-                        
                     </form>
                 </div>
-               
             </div>
         </div>
     </div>

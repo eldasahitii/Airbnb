@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.getElementById("nextSlide").addEventListener("click", slideImg);
-    setInterval(slideImg, 3000);
+  ;
 });
     </script>
     <div class="slideshow">
